@@ -268,6 +268,9 @@ def key_metrics(fin: pd.DataFrame, market: Optional[MarketSnapshot] = None,
         if mcap is None and market.shares_outstanding:
             mcap = market.price * market.shares_outstanding
             km.notes["market_cap"] = "Derived as price × shares outstanding."
+        elif mcap is None and (filed_shares := _latest(_col(fin, "shares_outstanding"))):
+            mcap = market.price * filed_shares
+            km.notes["market_cap"] = "Derived as price × latest filed shares outstanding."
         v["market_cap"] = mcap
         eps_latest = v.get("latest_eps")
         if km.currency_mismatch:

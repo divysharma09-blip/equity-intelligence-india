@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from eii.config import Settings
 from eii.providers.base import FundamentalsProvider, ProviderStatus, SecurityMasterProvider
 from eii.providers.exchange_masters import BSEScripMaster, NSEEquityMaster
+from eii.providers.nse_bhavcopy import NSEBhavcopyProvider
 from eii.providers.nse_filings import NSEClient, NSEFilingsProvider
 from eii.providers.yahoo import YahooFinanceProvider
 
@@ -33,5 +34,8 @@ def build_registry(settings: Settings) -> ProviderRegistry:
                                          settings.http_timeout_seconds, settings.nse_listing_ttl_hours),
                                enabled=settings.enable_nse_filings),
             YahooFinanceProvider(enabled=settings.enable_yfinance),
+            # Official closing price, used when Yahoo returns no quote (e.g. on cloud hosts).
+            NSEBhavcopyProvider(settings.reference_dir, settings.http_timeout_seconds,
+                                enabled=settings.enable_nse_filings),
         ],
     )
