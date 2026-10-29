@@ -51,6 +51,12 @@ def test_provider_name_mismatch_is_conflict(alpha_identity, nse_df, bse_df):
     assert v.status == VerificationStatus.CONFLICT
 
 
+def test_empty_provider_profile_is_not_conflict(alpha_identity, nse_df, bse_df):
+    empty = CompanyProfile(provider_name=None, provider_symbol=None)
+    v = verify_identity(alpha_identity, nse_df, bse_df, empty, "ALPHAIND.NS")
+    assert v.status != VerificationStatus.CONFLICT
+
+
 def test_partial_when_bse_list_missing_and_provider_unclear(alpha_identity, nse_df):
     unclear = CompanyProfile(provider_name="Alpha Inds Chem", provider_symbol="ALPHAIND.NS")
     v = verify_identity(alpha_identity, nse_df, None, unclear, "ALPHAIND.NS")

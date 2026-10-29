@@ -134,8 +134,12 @@ def verify_identity(identity: SecurityIdentity, nse: Optional[pd.DataFrame],
             checks.append(VerificationCheck(name="Data provider ticker matches", passed=ok,
                                             detail=f"provider {profile.provider_symbol}, expected {expected_provider_symbol}"))
             conflict |= not ok
-        sim = name_similarity(identity.company_name, profile.provider_name)
-        if sim >= NAME_MATCH:
+        sim = name_similarity(identity.company_name, profile.provider_name) if profile.provider_name else 0.0
+        if not profile.provider_name:
+            # Provider returned no profile (e.g. Yahoo blocking cloud hosts): absence is not a mismatch.
+            checks.append(VerificationCheck(name="Data provider company name matches", passed=None,
+                                            detail="Provider returned no company name"))
+        elif sim >= NAME_MATCH:
             checks.append(VerificationCheck(name="Data provider company name matches", passed=True,
                                             detail=f"'{profile.provider_name}' (similarity {sim:.2f})"))
         elif sim < NAME_MISMATCH:
