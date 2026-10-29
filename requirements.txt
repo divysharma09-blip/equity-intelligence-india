@@ -1,0 +1,13 @@
+# Equity Intelligence India — Python 3.11+ (developed on 3.12)
+streamlit>=1.50,<2
+pandas>=2.2
+numpy>=1.26
+plotly>=5.20
+openpyxl>=3.1
+pydantic>=2.6,<3
+python-dotenv>=1.0
+requests>=2.31
+pytest>=8.0
+
+# Optional, free & unofficial fundamentals/price provider. Disable with EII_ENABLE_YFINANCE=false.
+yfinance>=0.2.50
