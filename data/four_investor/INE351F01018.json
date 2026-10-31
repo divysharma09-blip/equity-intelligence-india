@@ -1,0 +1,901 @@
+{
+  "identity_key": "INE351F01018",
+  "company_name": "Jaiprakash Power Ventures Limited",
+  "nse_symbol": "JPPOWER",
+  "generated_at": "2026-10-31T06:55:48.336419Z",
+  "model": "claude-opus-5-5",
+  "horizon": "3–5 years",
+  "price_used": 12.72,
+  "app_ratings": {
+    "buffett.economics.roce": {
+      "param_id": "buffett.economics.roce",
+      "rating": 2,
+      "observed": "10.3%",
+      "evidence": "Cut points for ratings 1–4: 6.0% / 10.0% / 15.0% / 20.0%.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "buffett.economics.margin_stability": {
+      "param_id": "buffett.economics.margin_stability",
+      "rating": 2,
+      "observed": "5.9%",
+      "evidence": "Standard deviation of EBIT margin across filed years. Cut points for ratings 1–4: 10.0% / 6.0% / 3.0% / 1.5%.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "buffett.strength.fcf": {
+      "param_id": "buffett.strength.fcf",
+      "rating": 4,
+      "observed": "23.2%",
+      "evidence": "Latest free cash flow / revenue. Cut points for ratings 1–4: 0.0% / 2.0% / 5.0% / 10.0%.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "buffett.strength.leverage": {
+      "param_id": "buffett.strength.leverage",
+      "rating": 3,
+      "observed": "0.27x",
+      "evidence": "Cut points for ratings 1–4: 2.00x / 1.00x / 0.50x / 0.20x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "buffett.strength.interest_cover": {
+      "param_id": "buffett.strength.interest_cover",
+      "rating": 1,
+      "observed": "2.99x",
+      "evidence": "Cut points for ratings 1–4: 1.50x / 3.00x / 6.00x / 12.00x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "buffett.strength.working_capital": {
+      "param_id": "buffett.strength.working_capital",
+      "rating": 4,
+      "observed": "2.70x",
+      "evidence": "Cut points for ratings 1–4: 0.80x / 1.00x / 1.30x / 1.80x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "buffett.value.owner_earnings": {
+      "param_id": "buffett.value.owner_earnings",
+      "rating": 4,
+      "observed": "14.8%",
+      "evidence": "Proxy: free-cash-flow yield (owner earnings need maintenance capex, which filings don't split). Cut points for ratings 1–4: 0.0% / 2.0% / 4.0% / 7.0%.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "munger.quality.earnings_consistency": {
+      "param_id": "munger.quality.earnings_consistency",
+      "rating": 2,
+      "observed": "5.9%",
+      "evidence": "Standard deviation of EBIT margin across filed years. Cut points for ratings 1–4: 10.0% / 6.0% / 3.0% / 1.5%.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "munger.integrity.pledging": {
+      "param_id": "munger.integrity.pledging",
+      "rating": 0,
+      "observed": "72.99",
+      "evidence": "Promoter shares pledged, % of promoter holding, as filed with NSE. Reported to NSE, as of 30 Sep 2026. Cut points for ratings 1–4: 50 / 20 / 5 / 0.5.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "munger.capital.debt_management": {
+      "param_id": "munger.capital.debt_management",
+      "rating": 3,
+      "observed": "0.27x",
+      "evidence": "Cut points for ratings 1–4: 2.00x / 1.00x / 0.50x / 0.20x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "munger.protection.balance_sheet": {
+      "param_id": "munger.protection.balance_sheet",
+      "rating": 1,
+      "observed": "2.99x",
+      "evidence": "Interest coverage as the balance-sheet stress measure. Cut points for ratings 1–4: 1.50x / 3.00x / 6.00x / 12.00x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "dalio.credit.interest_cover": {
+      "param_id": "dalio.credit.interest_cover",
+      "rating": 1,
+      "observed": "2.99x",
+      "evidence": "Cut points for ratings 1–4: 1.50x / 3.00x / 6.00x / 12.00x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "dalio.credit.liquidity": {
+      "param_id": "dalio.credit.liquidity",
+      "rating": 4,
+      "observed": "2.70x",
+      "evidence": "Cut points for ratings 1–4: 0.80x / 1.00x / 1.30x / 1.80x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "dalio.credit.stress": {
+      "param_id": "dalio.credit.stress",
+      "rating": 3,
+      "observed": "0.27x",
+      "evidence": "Cut points for ratings 1–4: 2.00x / 1.00x / 0.50x / 0.20x.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "fisher.growth.revenue_cagr": {
+      "param_id": "fisher.growth.revenue_cagr",
+      "rating": 0,
+      "observed": "-1.3%",
+      "evidence": "3y CAGR, FY ending Mar 2023 → Mar 2026 Cut points for ratings 1–4: 0.0% / 5.0% / 10.0% / 15.0%.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "fisher.execution.efficiency": {
+      "param_id": "fisher.execution.efficiency",
+      "rating": 4,
+      "observed": "27.3%",
+      "evidence": "EBIT margin, 3y average. Cut points for ratings 1–4: 3.0% / 7.0% / 12.0% / 18.0%.",
+      "confidence": "High",
+      "source": "app"
+    },
+    "munger.integrity.auditor": {
+      "param_id": "munger.integrity.auditor",
+      "rating": 1,
+      "observed": "Modified opinion",
+      "evidence": "Audit opinion as filed with NSE. Capped at 3 because auditor resignations are not checked by the app.",
+      "confidence": "High",
+      "source": "app"
+    }
+  },
+  "assessment": {
+    "assessments": [
+      {
+        "param_id": "buffett.moat.brand",
+        "rating": 1,
+        "observed": "Sells undifferentiated electricity (2,220 MW: Nigrie 1,320 MW, Bina 500 MW, Vishnuprayag 400 MW) to state utilities and power exchanges",
+        "benchmark": "Brand matters very little in power generation. Buyers choose on tariff and merit order",
+        "evidence": "CRISIL rating rationale, 20 Nov 2025: asset list and offtakers",
+        "explanation": "Buyers do not pay more for the 'Jaypee' name, and the brand is linked to group defaults and insolvency.",
+        "confidence": "High",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "buffett.moat.pricing_power",
+        "rating": 1,
+        "observed": "56% of capacity sold under regulated cost-plus PPAs; 44% (975 MW) sold at market prices",
+        "benchmark": "Regulated tariffs fix the return; market sales have no pricing power",
+        "evidence": "CRISIL, Nov 2025: 1,245 MW (56%) under long-term PPAs, 975 MW untied",
+        "explanation": "Regulators set the PPA tariffs and the company takes whatever the market pays for the rest. FY24→FY25 revenue fell 19% as market prices eased.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "buffett.moat.barriers",
+        "rating": 2,
+        "observed": "Thermal and hydro capacity is costly and slow to build, but the captive coal advantage is being given up",
+        "benchmark": "Strong moat = hard-to-copy low cost or exclusive assets",
+        "evidence": "Q1 FY27 filing (20 Jul 2026): Amelia North and Bandha North coal mines surrendered, ₹193.63 Cr exceptional charge. CRISIL: Amelia supplied 3.92 of Nigrie's 5.7 MTPA at ₹712/t",
+        "explanation": "Land, clearances and capital (~₹8–9 Cr/MW) slow new entrants. But India is adding large amounts of thermal and renewable capacity, and the company's main cost edge (captive pithead coal) is going away.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "buffett.moat.share_loyalty",
+        "rating": 2,
+        "observed": "Bina 70% under a 25-year PPA, Nigrie 37.5% under a 20-year PPA, Vishnuprayag 100% under PPA with UP",
+        "benchmark": "Contracts make customers sticky, but a utility has a fixed market share",
+        "evidence": "CRISIL, Nov 2025",
+        "explanation": "Long contracts keep the offtakers in place. 44% of capacity sells at market prices and there are payment disputes with UPPCL (₹471–476 Cr under reconciliation/APTEL).",
+        "confidence": "Medium",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "buffett.moat.cost_network",
+        "rating": 1,
+        "observed": "Captive Amelia coal at ₹712/t is being surrendered. Bina sits low in the dispatch order because it is far from the mines",
+        "benchmark": "Lowest-cost producer or network effects",
+        "evidence": "CRISIL Nov 2025; Q1/Q2 FY27 filings",
+        "explanation": "The pithead captive coal advantage is shrinking. Bina buys about 32% of its coal at e-auction prices. A generator has no network effects.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "buffett.economics.roe",
+        "rating": 1,
+        "observed": "ROE: FY23 ~0.5%, FY24 9.3%, FY25 6.9%, FY26 3.6%",
+        "benchmark": "Indian power generators: 10–15% is acceptable",
+        "evidence": "Calculated: Screener consolidated PAT ÷ average equity from app balance sheets",
+        "explanation": "ROE has never reached its cost of equity (~13%) in the last five years and is falling.",
+        "confidence": "High",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "buffett.economics.incremental_roc",
+        "rating": 1,
+        "observed": "Capital base flat at ~₹16,000 Cr; EBIT fell from ₹2,160 Cr (FY24) to ₹1,122 Cr (FY26)",
+        "benchmark": "Incremental ROIC above WACC",
+        "evidence": "App data FY23–FY26",
+        "explanation": "Very little new capital was invested, and returns on the existing capital fell. The company is not compounding.",
+        "confidence": "Medium",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "buffett.economics.predictability",
+        "rating": 1,
+        "observed": "PAT ₹107/55/1,022/814/451 Cr (FY22–26). Quarterly PAT ranged from –₹13 Cr to ₹589 Cr",
+        "benchmark": "A stable utility shows low earnings variance",
+        "evidence": "Screener quarterly data; NSE filings",
+        "explanation": "Market-price exposure, coal costs and one-off items make earnings very hard to predict. Q3 FY26 PAT was about ₹4 Cr and Q2 FY27 PAT was ₹33 Cr.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "buffett.strength.cfo_pat",
+        "rating": 4,
+        "observed": "FY22–26 cumulative CFO ₹6,555 Cr vs PAT ₹2,449 Cr = 2.68x",
+        "benchmark": ">1.0x is good",
+        "evidence": "App CFO data; Screener PAT",
+        "explanation": "Cash flow is well above reported profit because depreciation is high (~₹470 Cr a year), much of the tax is non-cash, and working capital is controlled.",
+        "confidence": "High",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "buffett.value.dcf",
+        "rating": 1,
+        "observed": "Base DCF ₹7.6/share (fully diluted) vs price ₹12.72; bull ₹18.3, bear ₹1.5",
+        "benchmark": "Price should be well below the base-case DCF",
+        "evidence": "Analyst DCF: normalised EBITDA ₹1,850 Cr, WACC 12%, blended finite-life/perpetuity, ₹2,000 Cr expected contingent cost, ~920 Cr diluted shares",
+        "explanation": "After allowing for CCPS dilution and the unprovided contingent liabilities, the base value is well below the price. Only the bull case justifies today's price.",
+        "confidence": "Low",
+        "data_status": "Estimated"
+      },
+      {
+        "param_id": "buffett.value.historical_valuation",
+        "rating": 2,
+        "observed": "P/B 0.68x basic (~0.92x diluted). Normalised diluted P/E ~15x",
+        "benchmark": "Own history: P/B ~0.3–0.5x in FY21–23, ~1.2x at the 2024–25 peak",
+        "evidence": "App P/B; Screener book value ₹19.3; 52-week range ₹12.4–24.5",
+        "explanation": "The stock sits mid-range on its own history. Low P/B reflects low ROE and contingent claims, so it is not a signal of cheapness.",
+        "confidence": "Medium",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "buffett.value.margin_of_safety",
+        "rating": 0,
+        "observed": "Margin of safety = (7.6 – 12.72)/7.6 = –67%",
+        "benchmark": "Buffett-style buying needs a margin of safety of 25% or more",
+        "evidence": "Analyst valuation",
+        "explanation": "The price is well above base intrinsic value, so the margin of safety is negative. This rating comes from the evidence; it is not a gap in the data.",
+        "confidence": "Low",
+        "data_status": "Estimated"
+      },
+      {
+        "param_id": "munger.quality.understandable",
+        "rating": 3,
+        "observed": "Generates and sells electricity from three plants",
+        "benchmark": "Simple, understandable business",
+        "evidence": "CRISIL Nov 2025",
+        "explanation": "The core business is easy to understand. Legal claims, the CCPS and group guarantees make the equity harder to analyse.",
+        "confidence": "High",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "munger.quality.revenue_predictability",
+        "rating": 2,
+        "observed": "Revenue ₹6,763 Cr (FY24) → ₹5,462 Cr (FY25) → ₹5,563 Cr (FY26); 44% of capacity sold at market prices",
+        "benchmark": "Fully contracted generators are highly predictable",
+        "evidence": "App data; CRISIL",
+        "explanation": "Fixed charges on the 56% contracted capacity give a base. Market-price volume and price swings drive the rest.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "munger.quality.industry_durability",
+        "rating": 3,
+        "observed": "Indian power demand growing; coal power still provides baseload",
+        "benchmark": "Durable demand over 10+ years",
+        "evidence": "CRISIL notes peak-demand deficits support market prices",
+        "explanation": "Electricity demand is durable. Long-term threats to thermal plants are renewables plus storage and carbon policy.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "munger.quality.complexity",
+        "rating": 2,
+        "observed": "Thermal, hydro, coal mining (being exited), legacy sand mining contracts, cement grinding unit",
+        "benchmark": "Single focused business",
+        "evidence": "FY26 segment disclosure (ScanX); Q2 FY27 notes",
+        "explanation": "Legacy side businesses have created very large legal liabilities, including sand mining notices over ₹12,000 Cr.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "munger.integrity.track_record",
+        "rating": 1,
+        "observed": "Group defaulted on debt in 2015–19 (CARE D), went through strategic debt restructuring, the parent JAL entered insolvency in Jun 2024, and ED searched sand mining entities in May 2026",
+        "benchmark": "Clean, long record",
+        "evidence": "CARE ratings 2015/2019; CRISIL Nov 2025; ED raid reports May 2026",
+        "explanation": "The legacy Jaypee track record is poor. Adani Power became the 24% promoter in May 2026, which may improve governance, but it is too early to judge.",
+        "confidence": "Medium",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "munger.integrity.related_party",
+        "rating": 1,
+        "observed": "Corporate guarantee given for the parent JAL's debt; ₹511 Cr settlement with NARCL booked as an exceptional charge in Q2 FY27",
+        "benchmark": "No value moving out to the promoter group",
+        "evidence": "Business Standard, 21 Sep 2026; Q2 FY27 outcome, 19 Oct 2026",
+        "explanation": "Minority shareholders are paying about ₹511 Cr (~6% of market cap) for the former promoter's debt. CRISIL said the SBI guarantee had still not been released as of Nov 2025.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "munger.integrity.transparency",
+        "rating": 2,
+        "observed": "Contingent claims are disclosed in notes. Commentary is limited and figures in secondary sources conflict",
+        "benchmark": "Regular earnings calls and detailed presentations",
+        "evidence": "Investywise / Whalesbook Q2 FY27 summaries; app notes basic/diluted EPS mismatches",
+        "explanation": "The legal disclosures are there. Operating disclosure (PLF, realisations) and explanation of large swings, such as Q2 FY27 margins, are thin.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "munger.capital.reinvested_returns",
+        "rating": 1,
+        "observed": "ROCE 5–14% (FY23–26), now 7%. Historic debt-funded expansion ended in restructuring",
+        "benchmark": "Returns above WACC on capital reinvested",
+        "evidence": "App data; Screener 10-year history (borrowings ₹32,065 Cr in FY15)",
+        "explanation": "Past reinvestment destroyed value. Current reinvestment is minimal and the coal blocks have been written off.",
+        "confidence": "Medium",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "munger.capital.acquisitions",
+        "rating": 1,
+        "observed": "Became preferred bidder for Bandha North (~200 MT), then surrendered it and Amelia North; ₹193.63 Cr charge",
+        "benchmark": "Disciplined, value-accretive deals",
+        "evidence": "CRISIL Nov 2025; Q1 FY27 results",
+        "explanation": "A coal block bid in 2024–25 was abandoned within about a year. Earlier expansion led to forced asset sales.",
+        "confidence": "Medium",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "munger.capital.dividends_buybacks",
+        "rating": 2,
+        "observed": "No dividend or buyback despite ₹2,300 Cr of PAT over FY24–26",
+        "benchmark": "Return surplus cash when there are no reinvestment options",
+        "evidence": "App: dividends_paid 0",
+        "explanation": "Keeping cash is reasonable while the recompense and guarantee claims are unresolved and loans are being prepaid. Shareholders have still received no cash.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "munger.capital.dilution",
+        "rating": 1,
+        "observed": "Shares rose from 599.6 Cr to 685.35 Cr (+14%) through debt-to-equity conversion. ₹3,800 Cr of CCPS remain, implying ~920 Cr diluted shares",
+        "benchmark": "Little or no dilution",
+        "evidence": "App share counts; diluted EPS implied by app filings; S&P / MarketScreener, Sep 2025",
+        "explanation": "The filed diluted EPS implies about 34% more shares if the CCPS convert. That is a large overhang.",
+        "confidence": "Medium",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "munger.protection.downside",
+        "rating": 1,
+        "observed": "Q3 FY26 PAT ~₹4 Cr, Q4 FY26 –₹13 Cr, Q2 FY27 ₹33 Cr",
+        "benchmark": "Stays profitable in weak quarters",
+        "evidence": "Screener quarterly data; NSE results",
+        "explanation": "Earnings collapse when market prices, fuel costs or one-off items turn against the company.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "munger.protection.disruption",
+        "rating": 2,
+        "observed": "Thermal plants face cheap solar during the day and storage over time",
+        "benchmark": "Low risk of technology substitution",
+        "evidence": "Industry structure",
+        "explanation": "Firm thermal and hydro power stays needed for peak demand. Market price levels and plant economics are at risk later in the decade.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "munger.protection.accounting",
+        "rating": 1,
+        "observed": "Qualified audit opinion FY26 (MAT credit ₹265.96 Cr; guarantee not provided for) and qualified Q2 FY27 review (₹5,696.51 Cr recompense not provided for)",
+        "benchmark": "Clean opinions; conservative provisioning",
+        "evidence": "FilingReader 4 May 2026; Q2 FY27 outcome 19 Oct 2026",
+        "explanation": "There is no evidence of fraud. Provisioning is aggressive relative to the claims, and the auditor qualified the accounts.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "munger.protection.survival",
+        "rating": 2,
+        "observed": "Cash ₹2,009 Cr, debt ₹3,047 Cr (Sep 2026), positive FCF; contingent claims over ₹17,000 Cr",
+        "benchmark": "Survives a severe stress case",
+        "evidence": "App balance sheet; Screener; Q2 FY27 notes",
+        "explanation": "The operating business will survive. Equity holders could be largely wiped out if the recompense claim and sand mining claims crystallise.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.cycle.gdp",
+        "rating": 2,
+        "observed": "Power demand tracks GDP; market-price volumes depend on demand peaks",
+        "benchmark": "Utility with full contracts = low sensitivity",
+        "evidence": "CRISIL: market margins depend on peak deficits",
+        "explanation": "The contracted 56% is protected. Market-price earnings are highly sensitive to the cycle.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.cycle.recession",
+        "rating": 2,
+        "observed": "Fixed charges under PPAs give a floor; market sales have none",
+        "benchmark": "Regulated utility",
+        "evidence": "CRISIL",
+        "explanation": "In a recession, market prices and volumes would fall sharply.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.cycle.cyclicality",
+        "rating": 2,
+        "observed": "Revenue fell 19% in FY25; EBITDA fell 39% from FY24 to FY26",
+        "benchmark": "Low variance",
+        "evidence": "App data",
+        "explanation": "Demand and price for the uncontracted 44% is clearly cyclical.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "dalio.cycle.cycle_position",
+        "rating": 2,
+        "observed": "Tight power markets in FY24 are easing as new solar and thermal capacity arrives",
+        "benchmark": "Early or mid-cycle tailwind",
+        "evidence": "FY24 peak EBITDA ₹2,625 Cr vs FY26 ₹1,595 Cr",
+        "explanation": "The market-price windfall looks to have peaked in FY24.",
+        "confidence": "Low",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.rates.rate_sensitivity",
+        "rating": 3,
+        "observed": "Net debt ~₹1,371 Cr (FY26) = 0.86x EBITDA; interest cost down to ₹375 Cr",
+        "benchmark": "Low leverage",
+        "evidence": "App data",
+        "explanation": "Direct exposure to interest rates is modest. The valuation still depends on the discount rate because cash flows come from long-lived assets.",
+        "confidence": "High",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "dalio.rates.inflation_margins",
+        "rating": 2,
+        "observed": "Cost-plus PPAs pass fuel costs through; market sales do not",
+        "benchmark": "Full pass-through",
+        "evidence": "CRISIL",
+        "explanation": "Inflation is passed through on about half the capacity only.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.rates.input_costs",
+        "rating": 1,
+        "observed": "Coal is the main cost. Captive coal (₹712/t) is being surrendered; Bina buys ~32% at e-auction",
+        "benchmark": "Secure, low-cost fuel",
+        "evidence": "CRISIL Nov 2025; Q1 FY27 mine surrender",
+        "explanation": "Exposure to coal prices will rise. The size of the cost increase has not been disclosed.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.rates.fx",
+        "rating": 4,
+        "observed": "Domestic coal, INR revenue, no foreign-currency borrowing at JPVL",
+        "benchmark": "No FX exposure",
+        "evidence": "CRISIL debt structure (rupee term loans)",
+        "explanation": "Currency exposure is negligible.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.credit.refinancing",
+        "rating": 3,
+        "observed": "Rupee term loans mature Dec 2031–Mar 2035; debt service prepaid up to Sep 2026",
+        "benchmark": "Long-dated maturities, no near-term wall",
+        "evidence": "CRISIL BBB/Stable, Nov 2025",
+        "explanation": "Refinancing risk is low. The loans were reportedly assigned to new lenders, and the terms of that transfer are not verified.",
+        "confidence": "Medium",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "dalio.credit.credit_dependence",
+        "rating": 3,
+        "observed": "Funds itself from cash flow; Ind-Ra rating withdrawn because no short-term loans are planned (Jul 2026)",
+        "benchmark": "No dependence on new borrowing",
+        "evidence": "FilingReader, 3 Jul 2026",
+        "explanation": "Low reliance on credit markets, unless large contingent payments have to be funded.",
+        "confidence": "Medium",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "dalio.macro.commodity",
+        "rating": 1,
+        "observed": "Exposed to both coal and power prices",
+        "benchmark": "Commodity-neutral",
+        "evidence": "CRISIL",
+        "explanation": "Market-price margins are the gap between power and coal prices, so both commodities matter.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.macro.international",
+        "rating": 4,
+        "observed": "No international revenue",
+        "benchmark": "Lower external exposure = more resilient",
+        "evidence": "Company asset base (India only)",
+        "explanation": "No exposure to trade or foreign demand.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "dalio.macro.supply_chain",
+        "rating": 2,
+        "observed": "Depends on rail coal logistics and e-auctions; hydro output depends on Himalayan river flows",
+        "benchmark": "Diversified, secure supply",
+        "evidence": "CRISIL",
+        "explanation": "Giving up captive coal increases supply risk. The hydro plant is exposed to floods and silt.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "dalio.macro.government",
+        "rating": 1,
+        "observed": "Counterparties are state discoms; APTEL disputes with UPPCL; AP mining notices; tariffs set by regulators",
+        "benchmark": "Low regulatory dependence",
+        "evidence": "Q2 FY27 notes; CRISIL",
+        "explanation": "State governments are customers, regulators and claimants at once.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "dalio.macro.geopolitical",
+        "rating": 3,
+        "observed": "Domestic only; indirect exposure through imported-coal prices",
+        "benchmark": "Minimal",
+        "evidence": "Asset base",
+        "explanation": "Limited direct geopolitical exposure.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.growth.eps_cagr",
+        "rating": 1,
+        "observed": "Basic EPS ₹1.49 (FY24) → ₹0.66 (FY26). Diluted ₹1.09 → ₹0.49",
+        "benchmark": "EPS CAGR >10%",
+        "evidence": "Screener; diluted EPS implied by app filings",
+        "explanation": "The 3-year CAGR looks high only because FY23 was depressed. EPS has more than halved since FY24.",
+        "confidence": "High",
+        "data_status": "Calculated from verified data"
+      },
+      {
+        "param_id": "fisher.growth.tam",
+        "rating": 3,
+        "observed": "Indian electricity demand is growing at a mid-single-digit rate",
+        "benchmark": "Growing market",
+        "evidence": "CRISIL commentary on demand",
+        "explanation": "The overall market is growing, but the company is not adding capacity to capture that growth.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.growth.penetration",
+        "rating": 1,
+        "observed": "Capacity fixed at 2,220 MW; no expansion has been announced",
+        "benchmark": "Runway for expansion",
+        "evidence": "No expansion disclosed in FY26–Q2 FY27 filings",
+        "explanation": "Growth is limited to higher plant utilisation and prices.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.growth.demand_visibility",
+        "rating": 2,
+        "observed": "56% contracted until ~2034–37; 44% at market prices",
+        "benchmark": "Fully contracted",
+        "evidence": "CRISIL",
+        "explanation": "Visibility is partial.",
+        "confidence": "High",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "fisher.innovation.rnd",
+        "rating": 2,
+        "observed": "No R&D spending. Substitute metric: technology in use — Nigrie runs supercritical units",
+        "benchmark": "Substitute: generation efficiency (power-sector adjustment, weight unchanged)",
+        "evidence": "gem.wiki / CRISIL",
+        "explanation": "R&D does not apply to a generator. The thermal fleet uses efficient technology.",
+        "confidence": "Low",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.innovation.new_products",
+        "rating": 1,
+        "observed": "No new capacity, renewables or storage projects",
+        "benchmark": "Substitute: new project pipeline",
+        "evidence": "Filings",
+        "explanation": "The pipeline is empty and coal blocks have been dropped.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.innovation.patents",
+        "rating": 2,
+        "observed": "No patents. Substitute: technology and asset quality",
+        "benchmark": "Substitute",
+        "evidence": "Asset base",
+        "explanation": "Supercritical units plus a hydro plant with >99% availability, but nothing proprietary.",
+        "confidence": "Low",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.innovation.new_product_revenue",
+        "rating": 1,
+        "observed": "~0% of revenue from new assets",
+        "benchmark": "Substitute: revenue from newly commissioned capacity",
+        "evidence": "Filings",
+        "explanation": "All revenue comes from plants commissioned between 2006 and 2015.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.innovation.adaptability",
+        "rating": 1,
+        "observed": "No move into renewables or storage",
+        "benchmark": "Peers (NTPC, JSW, Tata) are diversifying",
+        "evidence": "Filings",
+        "explanation": "Not adapting so far. The Adani association could change this, but nothing has been announced.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.competition.share_growth",
+        "rating": 1,
+        "observed": "Fixed capacity while national capacity grows",
+        "benchmark": "Gaining share",
+        "evidence": "Asset base",
+        "explanation": "Its share of national generation is slowly shrinking.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.competition.retention",
+        "rating": 3,
+        "observed": "Long-term PPAs with MPPMCL and UP kept in place",
+        "benchmark": "Customers retained",
+        "evidence": "CRISIL",
+        "explanation": "Contracts lock in customers, although there are payment disputes.",
+        "confidence": "Medium",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "fisher.competition.distribution",
+        "rating": 2,
+        "observed": "Substitute: grid access and access to power exchanges",
+        "benchmark": "Substitute (power sector)",
+        "evidence": "CRISIL: market sales via short-term markets",
+        "explanation": "Grid access is adequate. Bina's distance from the mines puts it low in the dispatch order.",
+        "confidence": "Low",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.competition.differentiation",
+        "rating": 1,
+        "observed": "Electricity is a commodity",
+        "benchmark": "Differentiated product",
+        "evidence": "—",
+        "explanation": "No product differentiation.",
+        "confidence": "High",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.competition.positioning",
+        "rating": 1,
+        "observed": "Small independent producer vs NTPC, Adani Power, Tata Power, JSW Energy",
+        "benchmark": "Market leader",
+        "evidence": "Industry structure",
+        "explanation": "A weak, small competitor. It now sits within the orbit of Adani Power, a peer.",
+        "confidence": "Medium",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.execution.vision",
+        "rating": 1,
+        "observed": "No long-term strategy articulated; CFO and CS changing Nov/Dec 2026",
+        "benchmark": "Clear multi-year plan",
+        "evidence": "Q2 FY27 board outcome, 19 Oct 2026",
+        "explanation": "Leadership is in transition after the change of control.",
+        "confidence": "Low",
+        "data_status": "Qualitative assessment"
+      },
+      {
+        "param_id": "fisher.execution.execution",
+        "rating": 2,
+        "observed": "Vishnuprayag availability >99%, Nigrie 90–93%, debt prepaid up to Sep 2026; coal block plan abandoned",
+        "benchmark": "Delivers on stated targets",
+        "evidence": "CRISIL Nov 2025",
+        "explanation": "Plants run well and debt was paid down early. Strategic execution has been weak.",
+        "confidence": "Medium",
+        "data_status": "Verified"
+      },
+      {
+        "param_id": "fisher.execution.talent",
+        "rating": null,
+        "observed": "Employee data not retrieved",
+        "benchmark": "Attrition and productivity data",
+        "evidence": "BRSR not reviewed",
+        "explanation": "Data unavailable. Excluded from the score (no zero applied).",
+        "confidence": "Low",
+        "data_status": "Unavailable"
+      },
+      {
+        "param_id": "fisher.execution.reinvestment",
+        "rating": 1,
+        "observed": "Capex ₹7.86 Cr in FY26; CRISIL notes ~₹750 Cr planned over the medium term",
+        "benchmark": "Reinvesting for growth",
+        "evidence": "App; CRISIL",
+        "explanation": "Spending is maintenance only. There is no growth reinvestment.",
+        "confidence": "High",
+        "data_status": "Verified"
+      }
+    ],
+    "business_quality_score": 36.0,
+    "valuation_attractiveness_score": 25.0,
+    "risk_score": 78.0,
+    "dalio_macro_resilience_score": 59.0,
+    "dalio_current_macro_environment_score": 50.0,
+    "intrinsic_value_per_share": {
+      "bear": 1.5,
+      "base": 7.6,
+      "bull": 18.3,
+      "preferred_buy_price": 5.3,
+      "overvaluation_threshold": 10.5,
+      "method_note": "FCFF DCF on normalised EBITDA (bear ₹1,400 / base ₹1,850 / bull ₹2,300 Cr), maintenance capex ₹250 Cr, 25.17% tax. Base WACC 12%, valued as 60% finite 20-year life and 40% perpetuity at g=2%. Bridge: pro-forma net debt ₹1,882 Cr (FY26 net debt plus the ₹511 Cr NARCL settlement) and an expected cost for contingent claims (bear ₹3,000 / base ₹2,000 / bull ₹500 Cr). Per share on ~920 Cr fully diluted shares, implied by the filed diluted EPS and the ₹3,800 Cr CCPS. On 685.35 Cr basic shares the base value would be ₹10.2. Owner-earnings check gives ~₹6.9."
+    },
+    "red_flags": [
+      {
+        "issue": "Lenders' right-of-recompense claim of ₹5,696.51 Cr (ICICI demand letter, 9 Jan 2026) not provided for. Auditor qualified the Q2 FY27 review on this point. The claim equals ~65% of market cap.",
+        "severity": "Critical",
+        "status": "Unresolved",
+        "source": "Q2 FY27 board outcome & limited review, 19 Oct 2026 (NSE); Whalesbook/Investywise summaries"
+      },
+      {
+        "issue": "Show-cause and demand notices for alleged illegal sand mining in Andhra Pradesh: ~₹8,573 Cr + ₹3,479 Cr (>₹12,000 Cr). Interim stay from AP High Court. ED searched entities under PMLA in May 2026. The NGT earlier imposed a penalty.",
+        "severity": "Critical",
+        "status": "Unresolved",
+        "source": "Q2 FY27 notes (Oct 2026); CRISIL Nov 2025 (then ₹7,167 Cr); ED press reports May 2026"
+      },
+      {
+        "issue": "Qualified audit opinion on FY26 accounts (MAT credit ₹265.96 Cr recognised; corporate guarantee to JAL's lenders not provided for) and qualified limited review in Q2 FY27",
+        "severity": "High",
+        "status": "Unresolved",
+        "source": "FilingReader 4 May 2026; Q2 FY27 outcome"
+      },
+      {
+        "issue": "Corporate guarantee given for parent JAL's debt led NARCL to file an insolvency petition against JPVL (Feb 2026). Settled for ₹511 Cr (Sep 2026), subject to definitive agreements. The SBI guarantee release is not confirmed.",
+        "severity": "High",
+        "status": "Unclear",
+        "source": "Business Standard 21 Sep 2026; CRISIL Nov 2025"
+      },
+      {
+        "issue": "Promoter pledge at 72.99% of promoter holding (17.52% of equity). The pledge was re-created for JPVL's project lenders after Adani Power acquired the stake.",
+        "severity": "High",
+        "status": "Unresolved",
+        "source": "NSE shareholding pattern, 30 Sep 2026; Investywise pledge disclosure (May 2026)"
+      },
+      {
+        "issue": "₹3,800 Cr of CCPS held by lenders: potential ~34% increase in share count (~920 Cr diluted shares, implied by filed diluted EPS)",
+        "severity": "High",
+        "status": "Unresolved",
+        "source": "S&P/MarketScreener Sep 2025; app's filed EPS vs PAT mismatch"
+      },
+      {
+        "issue": "Surrender of the captive Amelia North coal mine (3.92 of Nigrie's 5.7 MTPA at ₹712/t) and Bandha North; ₹193.63 Cr exceptional charge; likely loss of fuel-cost advantage",
+        "severity": "High",
+        "status": "Unresolved",
+        "source": "Q1 FY27 results (20 Jul 2026); CRISIL Nov 2025"
+      },
+      {
+        "issue": "Earnings collapse and falling returns: ROCE 13.7% (FY24) → 7.0% (FY26); quarterly PAT ₹4 Cr / –₹13 Cr / ₹33 Cr in Q3 FY26 / Q4 FY26 / Q2 FY27",
+        "severity": "Medium",
+        "status": "Unresolved",
+        "source": "App financials; Screener quarterly data"
+      },
+      {
+        "issue": "Dependence on weak state discoms; ~₹471–476 Cr UPPCL dispute pending before APTEL",
+        "severity": "Medium",
+        "status": "Unresolved",
+        "source": "Q2 FY27 notes; FilingReader May 2026; CRISIL"
+      },
+      {
+        "issue": "Total contingent liabilities ~₹9,729 Cr per Screener (FY26), before the sand mining notices grew",
+        "severity": "High",
+        "status": "Unresolved",
+        "source": "Screener (FY26 annual report data)"
+      },
+      {
+        "issue": "No dividends despite ₹2,287 Cr cumulative PAT over FY24–26",
+        "severity": "Low",
+        "status": "Unresolved",
+        "source": "App data"
+      }
+    ],
+    "verdict": "AVOID",
+    "verdict_summary": "The stock is not cheap once dilution and contingent claims are counted. At ₹12.72 it looks inexpensive on headline numbers (0.68x book, 6.3x EV/EBITDA, ~15% FCF yield on basic shares). After adjusting for ~34% potential dilution from the ₹3,800 Cr CCPS, the ₹511 Cr payment for the former parent's guaranteed debt, and contingent claims (₹5,697 Cr lenders' recompense claim plus >₹12,000 Cr of sand mining notices), base intrinsic value is ~₹7.6 per diluted share (bear ₹1.5, bull ₹18.3). That is a margin of safety of about –67%. Business quality is weak: a small commodity power producer, ROE 3.6%, falling ROCE, no growth pipeline, and its captive coal advantage being surrendered. Debt is low and cash flow is strong, which is the main positive. The four-investor score is 46.3 out of 100 (Poor). The decision would change if the recompense claim and sand mining notices were resolved cheaply, the auditor gave a clean opinion, the CCPS terms were clarified, and Adani-led fuel or contract improvements came through, or if the price fell to ₹5.3 or below.",
+    "report_markdown": "# Jaiprakash Power Ventures Ltd (NSE: JPPOWER): Institutional Fundamental Research Report\n\n**Four-Investor Scoring Engine (Buffett · Munger · Dalio · Fisher)**\nAnalysis date: 31 October 2026 · Price as of NSE close 30 Oct 2026 · Basis: **Consolidated** unless stated · Currency: ₹ crore\n\n---\n\n## SECTION 1: EXECUTIVE SUMMARY\n\n| Item | Value |\n|---|---|\n| Company | Jaiprakash Power Ventures Ltd (JPVL) |\n| Ticker / ISIN | JPPOWER (NSE), 532627 (BSE) / INE351F01018 |\n| Sector | Power generation: thermal (1,820 MW) + hydro (400 MW) |\n| Current price | **₹12.72** (NSE close, 30 Oct 2026, verified) |\n| Market cap (basic, 685.35 Cr shares) | **₹8,717.6 Cr** |\n| Market cap (fully diluted, ~920 Cr shares, CCPS converted; calculated) | **~₹11,700 Cr** |\n| 52-week range | ₹12.4 – ₹24.5 ([Screener](https://www.screener.in/company/JPPOWER/consolidated/)) |\n| Promoter | Adani Power Ltd, 24.00% (acquired from Jaiprakash Associates under JAL's insolvency resolution, SPA dated 20 May 2026); 72.99% of the stake is pledged |\n| Investment horizon | 3–5 years |\n| **Verdict** | **AVOID** (existing holders: reduce on rallies above ~₹10.5) |\n\n| Score | Value | Classification |\n|---|---|---|\n| Warren Buffett | **48.3 / 100** | Poor |\n| Charlie Munger | **39.3 / 100** | Poor |\n| Ray Dalio | **59.0 / 100** | Weak |\n| Philip Fisher | **38.5 / 100** (provisional on 96% coverage; talent data unavailable) | Poor |\n| **Overall four-investor score** | **46.3 / 100** | **Poor** |\n| Business Quality Score | 36 / 100 | Weak |\n| Valuation Attractiveness Score | 25 / 100 | Unattractive |\n| Risk Score (higher = riskier) | **78 / 100** | High |\n| Data coverage | 99% (weight-based) | |\n| Data confidence | Medium. Financials verified from NSE XBRL; legal and contingent figures from secondary summaries of exchange filings | |\n\n**In one paragraph:** JPVL owns three ageing but well-run power plants. It has paid down debt sharply (₹32,065 Cr in FY15 to ₹3,047 Cr in Sep 2026) and generates real cash. The equity, however, has three claims ranked ahead of it or alongside it: (1) **₹3,800 Cr of CCPS** that could add ~34% more shares; (2) a **₹5,697 Cr lenders' recompense claim** that is not provided for; and (3) **>₹12,000 Cr of sand mining demand notices**, plus ₹511 Cr just agreed to settle the former parent's guaranteed debt. The core economics are also weakening: ROCE fell from 13.7% to 7.0%, quarterly earnings are volatile, and the captive coal mine is being surrendered. **Our base value of ~₹7.6 per diluted share is well below ₹12.72.** The headline P/B of 0.68x is not a sign of cheapness here.\n\n> **Note on app data.** In the supplied dataset, `latest_net_income` (–₹2,162 Cr) and `latest_eps` (–₹3.01) are **FY2020 figures**. They appear only because FY21–FY26 PAT was excluded for \"EPS × shares ≠ PAT\" mismatches. The mismatch is explained by the **diluted** EPS reported in filings, which counts conversion of the CCPS (implied ~915–940 Cr diluted shares). Reported consolidated PAT is FY24 ₹1,022 Cr, FY25 ₹814 Cr and FY26 ₹450.63 Cr ([Screener](https://www.screener.in/company/JPPOWER/consolidated/), [Whalesbook FY26](https://www.whalesbook.com/corporate-news/English/energy/Jaiprakash-Power-Ventures-Q4-Loss-FY-Profit-Plunges-44percent/69f8bf949d1c90664825335a)). The app's \"P/E not meaningful\" is therefore a data artifact. Trailing P/E is ~7.3x on basic shares.\n\n---\n\n## SECTION 2: COMPANY OVERVIEW\n\n**Business model.** JPVL is an independent power producer (IPP). It sells electricity under long-term, cost-plus PPAs (regulated fixed charge plus a fuel pass-through), and sells uncontracted output on power exchanges and short-term bilateral markets. It also has legacy coal mining (now being surrendered), a sand mining segment (inactive, but with large legal claims) and a cement grinding unit at Nigrie.\n\n| Asset | Capacity | Type | Offtake | Fuel | Performance |\n|---|---|---|---|---|---|\n| Jaypee Nigrie STPP (MP) | 1,320 MW (2×660, COD 2014–15) | Supercritical coal, pithead | 37.5% (495 MW) under a 20-year PPA with MPPMCL; rest at market prices | Captive Amelia North supplied 3.92 of 5.7 MTPA at ₹712/t; **mine being surrendered (Q1 FY27)** | PLF 81% FY25 (85% FY24); PAF 90% (93%) |\n| Jaypee Bina TPP (MP) | 500 MW | Subcritical coal | 70% (~350 MW) under a 25-year PPA with MPPMCL | 1.5 MTPA FSA (~68%), rest e-auction; low in dispatch order | PAF 83% FY25 (90%) |\n| Jaypee Vishnuprayag HEP (Uttarakhand) | 400 MW | Run-of-river hydro | 100% under PPA with UP (UPPCL) | Water | PAF >99% for 5 years |\n| **Total** | **2,220 MW** | | **1,245 MW (56%) contracted / 975 MW (44%) at market prices** | | Combined PLF 73% FY25 |\n\nSource: [CRISIL rating rationale, 20 Nov 2025](https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/JaiprakashPowerVenturesLimited_November%2020_%202025_RR_383375.html).\n\n**Revenue segments (FY26).** Power accounts for ~₹5,564 Cr of revenue. Coal mining shows ~₹817 Cr in segment revenue, mostly sales to its own plant. Sand mining and cement grinding were nil or negative ([ScanX FY26](https://scanx.trade/stock-market-news/companies/jaiprakash-power-ventures-reports-fy26-annual-financial-results-standalone-net-profit-declines-to-44-152-lakhs/39474136)).\n\n**Geography.** 100% India: Madhya Pradesh, Uttarakhand and Uttar Pradesh.\n\n**Industry position.** A small IPP with roughly 0.4–0.5% of India's installed capacity (approximate, our estimate). It competes with NTPC, Adani Power, Tata Power, JSW Energy and others.\n\n**Ownership change (key 2026 event).** NCLT Allahabad approved Adani Enterprises' resolution plan for Jaiprakash Associates (JAL) on 17 Mar 2026. Adani Power was named the implementing entity for JAL's 24% stake in JPVL: 164.48 Cr shares for ~₹2,993.6 Cr, or **~₹18.2/share**, as part of a ₹4,194 Cr package that also includes the Churk plant ([NewKerala](https://www.newkerala.com/news/a/adani-power-acquire-24-pc-stake-jaiprakash-power-743.htm), [TradeBrains](https://tradebrains.in/jaiprakash-power-stock-jumps-3-after-adani-power-acquires-24-promoter-stake/)). ICICI Bank cut its equity stake to 6.42% by 15 May 2026 ([FilingReader](https://filingreader.com/news-wire/mumbai/2026-05-16/icici-bank-cuts-stake-in-jaiprakash-power-ventures-to-64)).\n\n**Growth drivers (potential, not yet evidenced).** Higher plant utilisation as Indian power demand grows; firm market prices during peak deficits; possible fuel, operating and contracting benefits from the Adani Power association. **No capacity expansion has been announced.**\n\n---\n\n## SECTION 3: FINANCIAL PERFORMANCE\n\n### 3.1 Five-year consolidated table (₹ Cr)\n\n| FY (Mar) | Revenue | EBITDA* | EBITDA margin | EBIT* | PAT | EPS basic (₹) | EPS diluted (₹, implied) | ROE | ROCE† | Gross debt | CFO | FCF (CFO–capex) |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| FY22 | 4,624.6 | 1,347.9 | 29.1% | 866.6 | 107 | 0.16 | 0.10 | ~1% | ~6% (Scr.) | 5,078 (Scr.) | 845.1 | 844.8 |\n| FY23 | 5,786.7 | 1,256.0 | 21.7% | 791.8 | 55 | 0.08 | 0.05 | ~0.5% | 5.2% | 4,754.5 | 767.4 | 767.3 |\n| FY24 | 6,762.8 | 2,624.7 | 38.8% | 2,159.6 | 1,022 | 1.49 | 1.09 | 9.3% | 13.7% | 4,241.8 | 1,927.2 | 1,728.5 |\n| FY25 | 5,462.2 | 2,100.0 | 38.4% | 1,629.8 | 814 | 1.19 | 0.89 | 6.9% | 10.2% | 3,765.6 | 1,714.3 | 1,471.5 |\n| FY26 | 5,563.5 | 1,595.2 | 28.7% | 1,122.4 | 450.6 | 0.66 | 0.49 | 3.6% | 7.0% | 3,380.3 | 1,301.0 | 1,293.1 |\n\n*EBITDA and EBIT are from the app (NSE XBRL) and **include other income and exceptional items** (EBIT = PBT + finance cost). Operating EBITDA excluding other income (Screener): FY24 ₹2,236 Cr, FY25 ₹1,855 Cr, FY26 ₹1,367 Cr. †ROCE = EBIT ÷ (equity + debt), year-end, calculated by us. PAT is from [Screener](https://www.screener.in/company/JPPOWER/consolidated/) and press summaries of filings. Revenue, EBITDA, debt, CFO and capex are from NSE XBRL (app). Diluted EPS is derived from the app's EPS × shares figures.\n\n### 3.2 Last 12 quarters (consolidated, ₹ Cr; [Screener](https://www.screener.in/company/JPPOWER/consolidated/))\n\n| Qtr | Dec-23 | Mar-24 | Jun-24 | Sep-24 | Dec-24 | Mar-25 | Jun-25 | Sep-25 | Dec-25 | Mar-26 | Jun-26 | Sep-26 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Sales | 2,190 | 1,515 | 1,755 | 1,226 | 1,140 | 1,341 | 1,583 | 1,438 | 1,156 | 1,386 | 1,724 | 1,512 |\n| Op. profit | 577 | 727 | 790 | 386 | 290 | 388 | 601 | 471 | 174 | 121 | 759 | 657 |\n| OPM | 26% | 48% | 45% | 32% | 25% | 29% | 38% | 33% | 15% | 9% | 44% | 43% |\n| PAT | 173 | 589 | 349 | 183 | 127 | 156 | 278 | 182 | 4 | –13 | 469 | **33** |\n\nQ1 FY27 PAT of ₹469 Cr is after a ₹193.63 Cr coal mine surrender charge ([TradeBrains](https://tradebrains.in/jaiprakash-power-q1-net-profit-jumps-68-to-468-cr-despite-193-cr-coal-mine-charge/)). Q2 FY27 PAT of ₹33 Cr is after a **₹511 Cr NARCL settlement charge** ([Whalesbook](https://www.whalesbook.com/corporate-news/English/energy/Jaiprakash-Power-Ventures-Q2-Profit-Falls-to-Rs-33-Crore/6ad62beab2eb76fd08c6c0c0)). Q2 FY27 had an unusually high 43% operating margin, which may include a recovery from UPPCL (₹475.87 Cr is under reconciliation). **This could not be verified and should not be extrapolated.**\n\n### 3.3 What the trends mean\n- **Revenue has not grown.** The 3-year CAGR is –1.3% (FY23→FY26). The FY24 peak came from tight market prices.\n- **Profitability has fallen twice in a row.** EBIT dropped 48% from FY24 to FY26, and ROCE went from 13.7% to 7.0%.\n- **Cash generation is the strong point.** FY22–26 cumulative FCF is ₹6,105 Cr against cumulative PAT of ₹2,449 Cr. Note that capex was unusually low (₹7.9 Cr in FY26), so this flatters FCF. CRISIL expects about ₹750 Cr of capex over the medium term.\n- **Deleveraging is real.** Gross debt fell from ₹4,754 Cr (FY23) to ₹3,047 Cr (Sep 2026). Net debt was ₹1,371 Cr at FY26, or 0.86x EBITDA. Interest cost fell from ₹560 Cr to ₹375 Cr.\n- **Working capital is stable.** Receivables are ₹1,091 Cr (~72 days of revenue, FY26); the current ratio is 2.70x.\n\n---\n\n## SECTION 4: BUSINESS QUALITY AND COMPETITIVE ADVANTAGE\n\n| Moat factor | Assessment | Direction |\n|---|---|---|\n| Brand | None. Electricity is a commodity, and the Jaypee name is tied to group defaults | — |\n| Pricing power | None. Regulators set PPA tariffs (fixed return on equity); market sales take the prevailing price | — |\n| Switching costs | Contractual only: 20–25-year PPAs on 56% of capacity | Stable to 2034–37 |\n| Cost advantage | Nigrie was a pithead plant with captive coal at ₹712/t. **Amelia North and Bandha North are being surrendered** | **Weakening** |\n| Scale | Small (2.2 GW) vs NTPC (>75 GW) and Adani Power (>17 GW) | — |\n| Asset quality | Supercritical Nigrie; Vishnuprayag hydro with >99% availability | Positive but ageing |\n| Market share | Fixed capacity in a growing market, so share is slowly falling | Declining |\n\n**Conclusion: no durable economic moat; the advantage is weakening.** The hydro plant is a scarce asset. The thermal plants make money mainly from (a) regulated returns on the contracted half and (b) cyclical market-price spreads on the rest. Losing captive coal is the most important change to the business, and the company has not disclosed how much it will cost.\n\n**Position: weak competitor.** It may in future benefit from the purchasing, coal logistics and trading capabilities of its new promoter, Adani Power. This is a possibility and not yet evidenced.\n\n---\n\n## SECTION 5: WARREN BUFFETT SCORECARD\n\n| # | Parameter | Wt | Actual performance | Rating | Score | Evidence / Explanation |\n|---|---|---|---|---|---|---|\n| **A** | **Economic moat (25)** | | | | **9.25** | |\n| 1 | Brand strength | 5 | Commodity product | 1 | 1.25 | No price premium; group reputation is impaired |\n| 2 | Pricing power | 5 | 56% regulated, 44% price-taker | 1 | 1.25 | Revenue –19% in FY25 as market prices eased (CRISIL) |\n| 3 | Barriers to entry | 7 | Capital and clearances, but captive coal being lost | 2 | 3.50 | Q1 FY27 mine surrender, ₹193.63 Cr charge |\n| 4 | Share stability / loyalty | 5 | Long PPAs; UPPCL disputes | 2 | 2.50 | CRISIL PPA table |\n| 5 | Cost advantage / network | 3 | Coal cost edge going away | 1 | 0.75 | CRISIL: Amelia at ₹712/t |\n| **B** | **Business economics (25)** | | | | **9.25** | |\n| 6 | ROCE consistency | 7 | 3-yr avg 10.3%; 13.7%→7.0% | 2 *(app)* | 3.50 | App-rated |\n| 7 | ROE consistency | 5 | 0.5% / 9.3% / 6.9% / 3.6% | 1 | 1.25 | Below cost of equity every year |\n| 8 | Operating margin stability | 5 | EBIT-margin volatility 5.9 pp | 2 *(app)* | 2.50 | App-rated |\n| 9 | Incremental ROC | 5 | Flat capital, EBIT halved | 1 | 1.25 | FY24→FY26 |\n| 10 | Earnings predictability | 3 | Quarterly PAT –₹13 Cr to ₹589 Cr | 1 | 0.75 | Screener |\n| **C** | **Financial strength (25)** | | | | **20.75** | |\n| 11 | FCF generation | 7 | FCF/revenue 23.2% (FY26) | 4 *(app)* | 7.00 | Capex abnormally low |\n| 12 | CFO vs PAT | 5 | 2.68x (5-yr aggregate) | 4 | 5.00 | Calculated |\n| 13 | Debt & leverage | 5 | D/E 0.27x | 3 *(app)* | 3.75 | Excludes CCPS and contingents |\n| 14 | Interest coverage | 4 | 2.99x EBIT/interest (FY26) | 1 *(app)* | 1.00 | Down from 4.8x in FY24 |\n| 15 | Cash conversion & WC | 4 | Current ratio 2.70x | 4 *(app)* | 4.00 | |\n| **D** | **Intrinsic value & MoS (25)** | | | | **9.00** | |\n| 16 | DCF intrinsic value | 8 | Base ₹7.6 vs price ₹12.72 | 1 | 2.00 | Section 10 |\n| 17 | Owner-earnings valuation | 5 | FCF yield 14.8% (basic) | 4 *(app)* | 5.00 | On diluted shares the owner-earnings yield is ~8.6% |\n| 18 | Historical valuation | 4 | P/B 0.68x, mid-range of history | 2 | 2.00 | |\n| 19 | Margin of safety | 8 | **–67%** | 0 | 0.00 | Rated 0 because the price is above value (evidence-based, not missing data) |\n| | **BUFFETT TOTAL** | 100 | | | **48.25 / 100** | Coverage 100% → **Poor** |\n\n**Buffett's question:** *Is this a wonderful business that can be bought below intrinsic value?* **No on both counts.** It is a cash-generating but ordinary, cyclical commodity business. After dilution and contingent claims, the price is above our estimate of value.\n\n---\n\n## SECTION 6: CHARLIE MUNGER SCORECARD\n\n| # | Parameter | Wt | Evidence | Rating | Score | Explanation |\n|---|---|---|---|---|---|---|\n| **A** | **Business quality & simplicity (25)** | | | | **15.00** | |\n| 1 | Understandability | 5 | Three power plants | 3 | 3.75 | Simple core business; the equity is complicated by claims |\n| 2 | Revenue predictability | 5 | 56% contracted | 2 | 2.50 | Market-price swings |\n| 3 | Earnings consistency | 7 | Margin volatility 5.9 pp | 2 *(app)* | 3.50 | |\n| 4 | Industry durability | 5 | Power demand rising | 3 | 3.75 | Long-term pressure on thermal |\n| 5 | Operational complexity | 3 | Legacy mining and cement segments | 2 | 1.50 | Source of the legal claims |\n| **B** | **Management integrity (25)** | | | | **6.25** | |\n| 6 | Track record | 5 | Defaults (CARE D 2015–19), parent insolvency, ED sand mining probe | 1 | 1.25 | Adani-era management not yet tested |\n| 7 | Related-party transactions | 5 | ₹511 Cr paid to settle the parent's guaranteed debt | 1 | 1.25 | Value has moved to the former promoter's creditors |\n| 8 | Auditor qualifications | 5 | Qualified FY26 opinion and Q2 FY27 review | 1 *(app)* | 1.25 | |\n| 9 | Pledging & governance | 5 | 72.99% of promoter stake pledged | 0 *(app)* | 0.00 | The pledge secures JPVL's own project lenders. That is less severe than a distressed promoter pledge, but it still caps the score |\n| 10 | Transparency | 5 | Notes disclose claims; limited operating commentary | 2 | 2.50 | |\n| **C** | **Capital allocation (25)** | | | | **9.75** | |\n| 11 | Return on reinvested capital | 7 | ROCE 7%; history of value destruction | 1 | 1.75 | |\n| 12 | Acquisition discipline | 5 | Coal blocks won, then surrendered | 1 | 1.25 | |\n| 13 | Dividends / buybacks | 4 | None | 2 | 2.00 | Keeping cash is defensible given the claims |\n| 14 | Debt management | 5 | D/E 0.27x, early prepayment | 3 *(app)* | 3.75 | The best feature |\n| 15 | Dilution control | 4 | +14% shares already; ~+34% possible from CCPS | 1 | 1.00 | |\n| **D** | **Permanent capital-loss protection (25)** | | | | **8.25** | |\n| 16 | Balance-sheet resilience | 7 | Interest coverage 2.99x | 1 *(app)* | 1.75 | |\n| 17 | Earnings downside resilience | 5 | PAT near zero in 3 of the last 4 quarters (Q3 FY26, Q4 FY26, Q2 FY27) | 1 | 1.25 | |\n| 18 | Disruption risk | 5 | Renewables and storage | 2 | 2.50 | |\n| 19 | Accounting / fraud risk | 5 | Qualified opinions; aggressive non-provisioning | 1 | 1.25 | No evidence of fraud |\n| 20 | Survival under stress | 3 | Business survives; equity at risk | 2 | 1.50 | |\n| | **MUNGER TOTAL** | 100 | | | **39.25 / 100** | Coverage 100% → **Poor** |\n\n**Munger's question:** *High quality, trustworthy, rational, low risk of permanent loss?* **No.** The risk of permanent equity loss comes mainly from **legal claims, not from the operating business**. \"Invert, always invert\": the path to a large loss is clear. The recompense claim and sand mining claims, together >₹17,000 Cr, are about twice the market cap, and neither has been provided for.\n\n---\n\n## SECTION 7: RAY DALIO SCORECARD\n\n| # | Parameter | Wt | Economic indicator / exposure | Rating | Score | Explanation |\n|---|---|---|---|---|---|---|\n| **A** | **Economic-cycle positioning (25)** | | | | **12.50** | |\n| 1 | GDP sensitivity | 6 | Market-price volumes track demand | 2 | 3.00 | |\n| 2 | Recession resistance | 7 | PPA fixed charges give a partial floor | 2 | 3.50 | |\n| 3 | Demand cyclicality | 6 | EBITDA –39% FY24→FY26 | 2 | 3.00 | |\n| 4 | Industry cycle position | 6 | Market-price windfall peaked in FY24 | 2 | 3.00 | |\n| **B** | **Interest rates & inflation (25)** | | | | **15.75** | |\n| 5 | Rate sensitivity | 7 | Net debt/EBITDA 0.86x | 3 | 5.25 | |\n| 6 | Inflation & margins | 6 | Pass-through on ~56% only | 2 | 3.00 | |\n| 7 | Input costs | 6 | Captive coal being lost; e-auction exposure | 1 | 1.50 | |\n| 8 | FX exposure | 6 | None | 4 | 6.00 | |\n| **C** | **Credit & debt (25)** | | | | **17.50** | |\n| 9 | Refinancing risk | 7 | Maturities 2031–35; prepaid to Sep 2026 | 3 | 5.25 | |\n| 10 | Interest coverage | 5 | 2.99x | 1 *(app)* | 1.25 | |\n| 11 | Liquidity | 5 | Current ratio 2.70x; cash ₹2,009 Cr | 4 *(app)* | 5.00 | |\n| 12 | Credit dependence | 4 | Self-funding | 3 | 3.00 | |\n| 13 | Stress resilience | 4 | D/E 0.27x | 3 *(app)* | 3.00 | Ignores contingents |\n| **D** | **Macro & geopolitical (25)** | | | | **13.25** | |\n| 14 | Commodity exposure | 6 | Coal and power prices | 1 | 1.50 | |\n| 15 | International exposure | 5 | None | 4 | 5.00 | |\n| 16 | Supply chain | 5 | Rail coal; Himalayan hydrology | 2 | 2.50 | |\n| 17 | Government / regulatory | 5 | State discoms, APTEL, AP mining notices | 1 | 1.25 | |\n| 18 | Geopolitical | 4 | Domestic | 3 | 3.00 | |\n| | **DALIO TOTAL** | 100 | | | **59.0 / 100** | Coverage 100% → **Weak** |\n\n- **Macro Resilience Score: 59 / 100.** Structurally the company is moderately resilient: low debt, no FX exposure, half the capacity contracted. Its weak points are commodity spreads and dependence on government counterparties.\n- **Current Macro Environment Score: 50 / 100.** Indian demand growth is supportive, but rapid solar additions weigh on daytime market prices, and the switch away from captive coal raises fuel costs. *We did not verify the RBI policy rate or CPI as of Oct 2026; this score is qualitative.*\n\n### Six-environment stress test (qualitative, with indicative directions)\n\n| Environment | Revenue | Margin | Earnings | Debt | Cash flow | Valuation |\n|---|---|---|---|---|---|---|\n| High growth + low inflation | ↑ (higher PLF, firm market prices) | ↑ | ↑↑ | ↓ | ↑ | ↑ (bull ≈ ₹18) |\n| High growth + high inflation | ↑ | ≈ (coal costs eat into market spreads) | ↑ | ↓ | ↑ | ≈ |\n| Low growth + high inflation (stagflation) | ↓ | ↓↓ (coal up, power prices flat) | ↓↓ | ≈ | ↓ | ↓↓ (bear) |\n| Low growth + low inflation | ↓ | ↓ | ↓ | ↓ | ≈ | ↓ |\n| Rising rates / tightening | ≈ | ≈ | slightly ↓ (₹3,047 Cr gross debt; +100 bp ≈ –₹30 Cr pre-tax) | ≈ | ≈ | ↓ (higher WACC) |\n| Credit contraction / liquidity stress | ≈ | ≈ | ≈ | Refinancing risk low | Discom payment delays ↑ receivables | ↓; contingent settlements harder to fund |\n\nOnly the +100 bp interest sensitivity (~₹30 Cr) is quantitative. Everything else is a qualitative assessment.\n\n**Dalio's question:** Resilient across monetary and credit regimes thanks to low debt. **Vulnerable to stagflation and commodity-spread regimes**, and to state-government regulatory and legal action.\n\n---\n\n## SECTION 8: PHILIP FISHER SCORECARD\n\n| # | Parameter | Wt | Historical performance | Growth potential | Rating | Score |\n|---|---|---|---|---|---|---|\n| **A** | **Growth potential (25)** | | | | | **8.25** |\n| 1 | Revenue CAGR 3–5y | 6 | –1.3% (3y) | Low | 0 *(app)* | 0.00 |\n| 2 | EPS CAGR 3–5y | 6 | Basic ₹1.49→₹0.66 since FY24 | Low | 1 | 1.50 |\n| 3 | Addressable market growth | 5 | Indian power demand growing at mid-single digits | Market grows, company does not | 3 | 3.75 |\n| 4 | Penetration opportunity | 4 | Capacity fixed at 2,220 MW | None announced | 1 | 1.00 |\n| 5 | Demand visibility | 4 | 56% contracted to 2034–37 | Partial | 2 | 2.00 |\n| **B** | **Innovation & R&D (25)**, with power-sector substitutes | | | | | **8.75** |\n| 6 | R&D → *technology/efficiency of fleet* | 5 | Supercritical Nigrie | — | 2 | 2.50 |\n| 7 | New products → *new project pipeline* | 5 | None; coal blocks dropped | — | 1 | 1.25 |\n| 8 | Patents → *proprietary technology/asset quality* | 5 | None proprietary | — | 2 | 2.50 |\n| 9 | New-product revenue → *revenue from new capacity* | 5 | ~0% | — | 1 | 1.25 |\n| 10 | Adaptability | 5 | No renewables or storage | Depends on Adani | 1 | 1.25 |\n| **C** | **Competitive position (25)** | | | | | **10.00** |\n| 11 | Market share growth | 7 | Declining share | — | 1 | 1.75 |\n| 12 | Customer retention | 5 | PPAs held | — | 3 | 3.75 |\n| 13 | Distribution → *grid and exchange access* | 5 | Adequate; Bina low in dispatch order | — | 2 | 2.50 |\n| 14 | Product differentiation | 5 | Commodity | — | 1 | 1.25 |\n| 15 | Competitive positioning | 3 | Small IPP | — | 1 | 0.75 |\n| **D** | **Management & execution (21 rated of 25)** | | | | | **10.00** |\n| 16 | Vision | 5 | No strategy articulated; CFO and CS change Nov/Dec 2026 | Uncertain | 1 | 1.25 |\n| 17 | Execution vs targets | 7 | Strong plant availability, early debt prepayment; coal plan failed | — | 2 | 3.50 |\n| 18 | Talent development | 4 | **Data unavailable** | — | null | excluded |\n| 19 | Operational efficiency | 4 | EBIT margin avg 27.3% | — | 4 *(app)* | 4.00 |\n| 20 | Reinvestment for growth | 5 | Capex ₹7.9 Cr (FY26) | — | 1 | 1.25 |\n| | **FISHER TOTAL** | 96 rated | | | | **37.0 / 96 = 38.5 / 100** |\n\nCoverage 96% → the score is technically valid but **marked provisional** for the one missing item. Classification: **Poor**.\n\n**Fisher's question:** *Can it grow earnings substantially over 5–10 years?* **No evidence that it can.** Any growth depends on an Adani-led strategy that has not yet been announced.\n\n---\n\n## SECTION 9: FOUR-INVESTOR COMPARISON\n\n| Investor | Score | Classification | Main strength | Main weakness |\n|---|---|---|---|---|\n| Warren Buffett | 48.3 /100 | Poor | Strong FCF and CFO/PAT; low debt | No moat; negative margin of safety |\n| Charlie Munger | 39.3 /100 | Poor | Debt reduction | Governance legacy; claims not provided for; dilution |\n| Ray Dalio | 59.0 /100 | Weak | No FX exposure, long-dated debt, liquidity | Commodity spreads; government counterparties |\n| Philip Fisher | 38.5 /100 *(prov.)* | Poor | Plant availability | No growth pipeline |\n| **Equal-weighted overall** | **(48.25 + 39.25 + 59.0 + 38.54) / 4 = 46.3 /100** | **Poor** | | |\n\n**Divergence explained.** Dalio's score is the highest because low leverage protects against monetary and credit shocks. That does not offset Munger's concern: the main threats are **legal and governance claims, which macro resilience does not address**. Buffett's financial-strength sub-score (20.75/25) is high, but it is based on reported balance-sheet figures and **excludes off-balance-sheet contingents and the CCPS**.\n\n---\n\n## SECTION 10: VALUATION ANALYSIS\n\n### 10.1 Share count, which is crucial here\n- Basic shares: **685.35 Cr** (verified).\n- Filed diluted EPS implies **~915–940 Cr** diluted shares, because ₹3,800 Cr of CCPS held by lenders would give the holder roughly a 25% post-conversion stake ([MarketScreener/S&P, Sep 2025](https://www.marketscreener.com/news/adani-power-kotak-alternate-assets-vedanta-and-oaktree-reportedly-among-the-players-to-bid-for-an-ce7d59d8de80f627)). **We use 920 Cr (estimated).** The exact conversion terms and current holder were not verified.\n\n### 10.2 Multiples (at ₹12.72)\n\n| Metric | Basic | Fully diluted | Note |\n|---|---|---|---|\n| Market cap | ₹8,718 Cr | ~₹11,700 Cr | |\n| Pro-forma net debt | ₹1,882 Cr | ₹1,882 Cr | FY26 net debt ₹1,371 Cr + ₹511 Cr NARCL settlement |\n| EV | ~₹10,600 Cr | ~₹13,580 Cr | |\n| P/E trailing (reported) | ~7.3x (Screener) | ~9.8x | Flattered by MAT-credit reinstatement (₹140.78 Cr) |\n| P/E normalised (PAT ₹784 Cr) | 11.1x | **14.9x** | |\n| EV/EBITDA FY26 (₹1,595 Cr) | 6.3x (app) | 8.5x | |\n| EV/EBITDA normalised (₹1,850 Cr) | 5.7x | 7.3x | |\n| P/B | 0.68x | ~0.92x | Diluted book/share ~₹13.8 (total equity incl. CCPS ÷ 920 Cr) |\n| FCF yield (FY26) | 14.8% | 11.0% | FY26 capex unusually low |\n| PEG | n.m. | n.m. | EPS falling |\n| Dividend yield | 0% | 0% | |\n\n**Historical comparison.** The stock traded at P/B ~0.3–0.5x during FY21–23, rose to ~1.2x near its ₹24.5 high, and is now at 0.68x. That is mid-range. **Peers:** NTPC, Adani Power, Tata Power and JSW Energy generally trade at higher P/E and P/B. They earn higher ROE, have growth pipelines and do not carry claims of this size, so JPVL's discount is justified. *We did not verify peer multiples as of the analysis date and therefore do not quote them.*\n\n**Transaction reference.** Adani Power paid ~₹18.2/share for the 24% block in May 2026 under the JAL resolution plan. That price was strategic, part of a bundled deal and agreed before the Q2 FY27 claims and charges. It is a ceiling reference, not a fair-value anchor.\n\n### 10.3 DCF (FCFF)\n\n| Assumption | Bear | Base | Bull |\n|---|---|---|---|\n| Normalised EBITDA (excl. treasury income) | ₹1,400 Cr | ₹1,850 Cr | ₹2,300 Cr |\n| D&A | ₹472 Cr | ₹472 Cr | ₹472 Cr |\n| Tax rate (new regime) | 25.17% | 25.17% | 25.17% |\n| Maintenance capex | ₹250 Cr | ₹250 Cr | ₹250 Cr |\n| FCFF | ₹916 Cr | ₹1,253 Cr | ₹1,590 Cr |\n| WACC | 13% | 12% | 11% |\n| Terminal treatment | 18-year finite life, no terminal value | 60% × 20-year life (+₹2,000 Cr residual) + 40% × perpetuity at g = 2% | Perpetuity at g = 2.5% |\n| Enterprise value | ₹6,266 Cr | ₹10,850 Cr | ₹19,174 Cr |\n| – Pro-forma net debt | ₹1,882 Cr | ₹1,882 Cr | ₹1,882 Cr |\n| – Expected contingent cost | ₹3,000 Cr | ₹2,000 Cr | ₹500 Cr |\n| **Equity value** | ₹1,384 Cr | ₹6,968 Cr | ₹16,792 Cr |\n| **Per diluted share (920 Cr)** | **₹1.5** | **₹7.6** | **₹18.3** |\n| Per basic share (if CCPS ignored) | ₹2.0 | ₹10.2 | ₹24.5 |\n\n**Rationale.** Thermal plants (82% of capacity) have finite economic lives, so we do not use a full perpetuity in the base case. The contingent-cost estimates are **our probability-weighted judgements, not disclosed figures**. Base case: about 25–30% of the ₹5,697 Cr recompense claim is paid, plus a modest sand mining outcome. The DCF is very sensitive to these legal outcomes and to market prices.\n\n### 10.4 Owner earnings\nNormalised PAT = (₹1,850 – ₹472 D&A – ₹330 interest) × (1 – 25.17%) = **₹784 Cr**.\nOwner earnings = 784 + 472 D&A – 250 maintenance capex – 0 working capital = **₹1,006 Cr** (₹1.09 per diluted share; **8.6% yield** on the diluted market cap).\nCapitalised at 12% with no growth = ₹8,383 Cr, less ₹2,000 Cr contingents = **₹6,383 Cr → ~₹6.9/diluted share**.\n*Limitations:* adding back D&A overstates sustainable owner earnings for ageing thermal assets, because part of D&A is a return of capital. The split between maintenance and growth capex is our estimate.\n\n### 10.5 Sum-of-the-parts\nNot decisive. Segments outside power are immaterial or loss-making. A rough split by asset (thermal and hydro) was not attempted because plant-level EBITDA is not disclosed.\n\n### 10.6 Valuation conclusion\n\n| | ₹/share (diluted) |\n|---|---|\n| Bear IV | 1.5 |\n| **Base IV** | **7.6** (owner-earnings cross-check 6.9) |\n| Bull IV | 18.3 |\n| Fair value range | 6.5 – 9.0 |\n| Current price | 12.72 |\n| **Margin of safety** | **(7.6 – 12.72) / 7.6 = –67%** |\n| Preferred accumulation price | ≤ 5.3 (30% below base) |\n| Overvaluation threshold | > 10.5 |\n\n**Weighting:** The DCF and owner-earnings methods carry the most weight because they explicitly account for dilution and contingents. Multiples ignore both, which is why the stock **looks** cheap on them.\n\n---\n\n## SECTION 11: BEAR / BASE / BULL SCENARIOS (to FY31, 5 years)\n\n| | Bear | Base | Bull |\n|---|---|---|---|\n| Revenue CAGR | –3% | +2% | +5% |\n| EBITDA (FY31) | ₹1,300 Cr | ₹1,850 Cr | ₹2,300 Cr |\n| FY31 EPS (diluted) | ₹0.39 | ₹0.95 | ₹1.29 |\n| EPS CAGR vs normalised ₹0.85 | –14% | +2% | +9% |\n| Exit P/E | 7x | 9x | 12x |\n| Price from earnings | ₹2.7 | ₹8.6 | ₹15.4 |\n| Net cash added per share (after claims) | ₹0 | ₹2.5 | ₹3.5 |\n| Dividends (cumulative) | 0 | 0 | ₹0.5 |\n| **Year-5 value** | **₹2.7** | **₹11.1** | **₹19.4** |\n| Total return | –79% | –13% | +53% |\n| **CAGR** | **–26.7%** | **–2.7%** | **+8.8%** |\n\nProbability-weighted at 30% / 50% / 20% gives **~₹10.2, below today's price**. Even the bull case only beats a fixed-deposit-like hurdle with moderate risk-adjusted returns. Bear case: market prices weaken, captive coal costs are lost, and a large share of the recompense claim plus some sand mining claims crystallise. Bull case: the claims are settled cheaply, Adani-led fuel or contract improvements come through, and dividends begin.\n\n---\n\n## SECTION 12: MANAGEMENT AND GOVERNANCE (Forensic review)\n\n| # | Issue | Source / date | Financial impact | Severity | Status |\n|---|---|---|---|---|---|\n| 1 | **Lenders' right-of-recompense claim** ₹5,696.51 Cr (ICICI demand letter 9 Jan 2026). Not provided for; auditor qualified the Q2 FY27 review | [Investywise Q2 FY27](https://www.investywise.com/jaiprakash-power-ventures-limited-unaudited-financial-results-key-appointments); [Whalesbook](https://www.whalesbook.com/corporate-news/English/energy/Jaiprakash-Power-Ventures-Q2-Profit-Falls-to-Rs-33-Crore/6ad62beab2eb76fd08c6c0c0) | ~65% of market cap | **Critical** | Unresolved; company disputes it. Loans reportedly assigned to new lenders |\n| 2 | **Sand mining demand notices** ~₹8,573 Cr + ₹3,479 Cr (AP District Mining Offices); interim AP High Court stay. ED PMLA searches (May 2026) named entities including JPVL; NGT penalty history | Q2 FY27 notes; [CRISIL](https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/JaiprakashPowerVenturesLimited_November%2020_%202025_RR_383375.html) (then ₹7,167 Cr) | >₹12,000 Cr claimed | **Critical** | Unresolved; the company says work was done by back-to-back sub-contractors. *These are allegations and demands, not final findings* |\n| 3 | **Corporate guarantee for JAL** → NARCL Section 7 IBC petition (Feb 2026) → ₹511 Cr settlement (19 Sep 2026) | [Business Standard](https://www.business-standard.com/markets/capital-market-news/jaiprakash-power-sizzles-as-company-agrees-rs-511-crore-narcl-settlement-126092100607_1.html) | ₹511 Cr expensed | High | Settlement subject to definitive agreements |\n| 4 | **Qualified audit opinion FY26** (Lodha & Co LLP): MAT credit ₹265.96 Cr; guarantee not provided for | [FilingReader, 4 May 2026](https://filingreader.com/news-wire/mumbai/2026-05-04/jaiprakash-power-profit-hit-by-auditor-warning-on-guarantees) | Reported equity may be overstated | High | Unresolved |\n| 5 | **Promoter pledge** 72.99% of promoter shares (120.05 Cr shares; re-created May 2026 for IDBI and project lender consortiums) | [NSE SHP Sep 2026](https://nsearchives.nseindia.com/corporate/xbrl/SHP_1742809_21102026030754_WEB.xml); [Investywise](https://www.investywise.com/jaiprakash-power-ventures-re-pledge-of-equity-shares/) | Overhang if enforced | High | Ongoing, linked to project finance |\n| 6 | **CCPS ₹3,800 Cr**: potential ~34% dilution | S&P/MarketScreener Sep 2025 | ~₹3.2/share dilution at base value | High | Unresolved; holder after the 2025 auction not verified |\n| 7 | **Coal mine surrender** (Amelia North, Bandha North) | [TradeBrains Q1 FY27](https://tradebrains.in/jaiprakash-power-q1-net-profit-jumps-68-to-468-cr-despite-193-cr-coal-mine-charge/) | ₹193.63 Cr charge + future fuel-cost increase | High | Compensation claim pending |\n| 8 | **UPPCL dispute** ~₹471–476 Cr (APTEL) | Q2 FY27 notes; FilingReader May 2026 | Receivable at risk | Medium | Unresolved |\n| 9 | **Management transition**: new CFO Jigar Dalal (1 Nov 2026), CS Paresh Patel (1 Dec 2026), new independent director Ravi Kapoor | [Investywise](https://www.investywise.com/?p=121291) | — | Low (could be positive) | In progress |\n\n**Promoter history.** 24.00% unchanged for 12 quarters. The holder changed from JAL to Adani Power in 2026. **Minority shareholder treatment:** historically weak, since JPVL guaranteed its parent's debt. The Adani era may improve this, but **Adani Power is also a competing generator, so there is potential for conflicting interests** in future related-party dealings (fuel, power sales, any merger). Integration or a merger at an unfavourable swap ratio is a risk to monitor.\n\n---\n\n## SECTION 13: MACROECONOMIC ANALYSIS\n\n- **GDP and power demand.** Indian electricity demand grows roughly in line with GDP. Peak-hour deficits support thermal market prices (CRISIL).\n- **Inflation.** Cost-plus PPAs pass through fuel inflation. Market sales absorb coal-price inflation.\n- **Interest rates and monetary policy.** Gross debt of ₹3,047 Cr means low direct sensitivity. A falling-rate environment would help the valuation more than earnings. *The Oct 2026 repo rate and CPI were not verified.*\n- **Currency.** Negligible exposure.\n- **Credit conditions.** No reliance on new credit. Rated CRISIL BBB/Stable (Nov 2025); Ind-Ra withdrew its rating at the company's request (Jul 2026).\n- **Industry cycle.** FY24 was the market-price peak. Large solar additions and new thermal capacity are likely to compress market spreads over FY27–30.\n- **Geopolitical.** Indirect only, through imported-coal benchmarks that affect e-auction prices.\n\n---\n\n## SECTION 14: RISK ANALYSIS\n\n| Risk type | Level | Comment |\n|---|---|---|\n| Business | High | Commodity output; 44% sold at market prices; captive coal being lost |\n| Financial | Medium | Low reported debt, but contingents of over 2x market cap and the CCPS sit off the headline ratios |\n| Governance | **High** | Legacy group record, pledge, guarantee leakage, Adani conflict potential |\n| Accounting | High | Qualified opinions; claims not provided for; MAT-credit judgments |\n| Competitive | Medium-High | Small scale; renewables pressure |\n| Macro | Medium | Commodity-spread and regulatory exposure |\n| Execution | Medium | Management transition; fuel replacement |\n| Liquidity | Low-Medium | ₹2,009 Cr cash (FY26); a ₹5,697 Cr claim would overwhelm it |\n\n**Five biggest risks**\n1. The recompense claim (₹5,697 Cr) crystallises in material part.\n2. Sand mining demands (>₹12,000 Cr) or a PMLA outcome go against the company.\n3. CCPS conversion dilutes shareholders by ~34%, possibly with an open offer at a low price.\n4. Fuel costs rise after the captive coal surrender, combined with weaker market spreads.\n5. Conflict of interest or an unfavourable restructuring under a promoter that is also a competing generator.\n\n---\n\n## SECTION 15: FINAL SCORECARD\n\n| Metric | Score |\n|---|---|\n| **Overall four-investor score** | **46.3 / 100 (Poor)** |\n| Buffett | 48.3 |\n| Munger | 39.3 |\n| Dalio | 59.0 (Macro resilience 59; current macro environment 50) |\n| Fisher | 38.5 (provisional, 96% coverage) |\n| Business quality | 36 |\n| Valuation attractiveness | 25 |\n| Financial strength | 60 (strong reported balance sheet, reduced for contingents and CCPS) |\n| Risk (0 = low) | **78** |\n| Data coverage | Buffett 100%, Munger 100%, Dalio 100%, Fisher 96%; **overall 99%** |\n| Data confidence | Medium |\n\n---\n\n## SECTION 16: BUYING PRICE AND INVESTMENT STRATEGY\n\n| Zone | ₹/share | Basis |\n|---|---|---|\n| Strong value buying zone | ≤ 4.5 | ~40% below base IV; covers a bear-leaning legal outcome |\n| Accumulation zone | 4.5 – 5.3 | 30% margin of safety on ₹7.6 |\n| Fair value zone | 6.5 – 9.0 | DCF base ₹7.6 / owner earnings ₹6.9, ± sensitivity |\n| Expensive zone | 9.0 – 10.5 | Pricing in favourable legal outcomes |\n| Overvaluation threshold | **> 10.5** | Above the basic-share base value (₹10.2); the current ₹12.72 is here |\n\n**Assumptions:** these zones are on a fully diluted basis with ₹2,000 Cr of expected contingent cost. If the claims are resolved for under ₹500 Cr, base IV rises to ~₹9.2. If the CCPS were cancelled or redeemed (unlikely), add ~₹2.5/share.\n\n---\n\n## SECTION 17: EXACT INVESTMENT CONDITIONS\n\n**BUY** (all of the following):\n- Price ≤ ₹5.3, or base IV re-rated so the margin of safety is ≥ 30%.\n- Recompense claim settled or dismissed for ≤ ₹1,000 Cr.\n- Sand mining notices quashed or reduced to below ₹500 Cr.\n- Clean (unqualified) audit opinion.\n- CCPS terms and holder disclosed.\n- Normalised ROCE ≥ 12% and fuel security confirmed after the Amelia surrender.\n- Net debt/EBITDA ≤ 1.5x.\n\n**ACCUMULATE:** price ₹5.3–6.5 with at least one of the major claims resolved favourably.\n\n**HOLD** (for existing holders): only if price is within the ₹6.5–9.0 fair range and quarterly operating EBITDA is ≥ ₹450 Cr. Reassess on any adverse court order.\n\n**AVOID** (current status): price > ₹10.5, claims unresolved, qualified audit, ROCE < 10%.\n\n**SELL / REDUCE** if any of the following happens:\n- An adverse final ruling on the recompense claim or sand mining claims.\n- Enforcement of the promoter pledge.\n- CCPS conversion or an open offer at a price below market.\n- A merger with Adani Power at a swap ratio below intrinsic value.\n- Two consecutive quarters of operating EBITDA below ₹250 Cr.\n- New guarantees given for related parties.\n\n---\n\n## SECTION 18: FINAL PROFESSIONAL VERDICT\n\n| Question | Answer |\n|---|---|\n| High-quality business? | **No.** A commodity IPP with ROE of 3.6–9% and falling ROCE |\n| Financially strong? | **Strong on reported figures** (D/E 0.27x, ₹2,009 Cr cash, FCF ~₹1,300 Cr). **Fragile after contingents** (>₹17,000 Cr of claims) |\n| Sustainable competitive advantage? | **No.** Captive coal edge being surrendered; no pricing power |\n| Trustworthy management? | **Not yet established.** Legacy record is poor; the Adani-era team is untested; ₹511 Cr paid for the former parent's guarantee |\n| Can it grow 5–10 years? | **Unlikely without new capacity.** None announced |\n| Undervalued? | **No.** Base IV ~₹7.6 per diluted share vs ₹12.72 |\n| Margin of safety? | **Negative (~–67%)** |\n| Biggest risk | Crystallisation of the ₹5,697 Cr recompense claim and the >₹12,000 Cr sand mining demands, which are not provided for |\n| Would a rational long-term investor buy? | **Not at this price.** A low P/B and a high headline FCF yield do not make up for ~34% potential dilution and claims worth about twice the market cap |\n\n### Conclusion: **AVOID**\nJPVL is a deleveraged, cash-generating collection of ordinary power plants. Its equity carries claims and dilution that the market's headline multiples ignore. Adani Power's arrival is the main source of upside: it could bring better fuel supply, more contracted capacity and a resolution of the legal claims. That upside is speculative and already partly reflected in the price, given the Adani entry price of ~₹18. **Revisit if price falls to ≤ ₹5.3, or if the recompense and sand mining claims are resolved cheaply and the auditor gives a clean opinion.**\n\n*Scores show how well the company fits each investment philosophy. They are not probabilities of success. Contingent-cost estimates, the diluted share count and DCF inputs are analyst estimates and are labelled as such. This is not personalised investment advice.*\n\n### Key sources\n- [NSE XBRL FY2026 consolidated results](https://nsearchives.nseindia.com/corporate/xbrl/INTEGRATED_FILING_INDAS_1663452_04052026091222_WEB.xml)\n- [NSE shareholding pattern, Sep 2026](https://nsearchives.nseindia.com/corporate/xbrl/SHP_1742809_21102026030754_WEB.xml)\n- [CRISIL rating rationale, Nov 2025](https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/JaiprakashPowerVenturesLimited_November%2020_%202025_RR_383375.html)\n- [Screener consolidated](https://www.screener.in/company/JPPOWER/consolidated/)\n- [Q2 FY27 board outcome (Investywise)](https://www.investywise.com/?p=121291)\n- [NARCL settlement (Business Standard)](https://www.business-standard.com/markets/capital-market-news/jaiprakash-power-sizzles-as-company-agrees-rs-511-crore-narcl-settlement-126092100607_1.html)\n- [Adani Power acquisition (NewKerala)](https://www.newkerala.com/news/a/adani-power-acquire-24-pc-stake-jaiprakash-power-743.htm)\n- [CCPS auction (MarketScreener)](https://www.marketscreener.com/news/adani-power-kotak-alternate-assets-vedanta-and-oaktree-reportedly-among-the-players-to-bid-for-an-ce7d59d8de80f627)\n- [FY26 auditor qualification (FilingReader)](https://filingreader.com/news-wire/mumbai/2026-05-04/jaiprakash-power-profit-hit-by-auditor-warning-on-guarantees)\n- [Q1 FY27 (TradeBrains)](https://tradebrains.in/jaiprakash-power-q1-net-profit-jumps-68-to-468-cr-despite-193-cr-coal-mine-charge/)\n",
+    "sources": [
+      {
+        "title": "NSE annual results FY2026 (Consolidated) XBRL",
+        "url": "https://nsearchives.nseindia.com/corporate/xbrl/INTEGRATED_FILING_INDAS_1663452_04052026091222_WEB.xml"
+      },
+      {
+        "title": "NSE shareholding pattern JPPOWER Sep 2026",
+        "url": "https://nsearchives.nseindia.com/corporate/xbrl/SHP_1742809_21102026030754_WEB.xml"
+      },
+      {
+        "title": "NSE bhavcopy 30 Oct 2026",
+        "url": "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261030_F_0000.csv.zip"
+      },
+      {
+        "title": "CRISIL Rating Rationale – JPVL, 20 Nov 2025",
+        "url": "https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/JaiprakashPowerVenturesLimited_November%2020_%202025_RR_383375.html"
+      },
+      {
+        "title": "Screener – JPPOWER consolidated",
+        "url": "https://www.screener.in/company/JPPOWER/consolidated/"
+      },
+      {
+        "title": "Investywise – Q2 FY27 board outcome, CFO/CS appointments",
+        "url": "https://www.investywise.com/?p=121291"
+      },
+      {
+        "title": "Whalesbook – Q2 FY27 profit falls to ₹33 Cr",
+        "url": "https://www.whalesbook.com/corporate-news/English/energy/Jaiprakash-Power-Ventures-Q2-Profit-Falls-to-Rs-33-Crore/6ad62beab2eb76fd08c6c0c0"
+      },
+      {
+        "title": "Business Standard – ₹511 Cr NARCL settlement",
+        "url": "https://www.business-standard.com/markets/capital-market-news/jaiprakash-power-sizzles-as-company-agrees-rs-511-crore-narcl-settlement-126092100607_1.html"
+      },
+      {
+        "title": "FilingReader – FY26 auditor qualification on guarantees",
+        "url": "https://filingreader.com/news-wire/mumbai/2026-05-04/jaiprakash-power-profit-hit-by-auditor-warning-on-guarantees"
+      },
+      {
+        "title": "TradeBrains – Q1 FY27 results and coal mine surrender",
+        "url": "https://tradebrains.in/jaiprakash-power-q1-net-profit-jumps-68-to-468-cr-despite-193-cr-coal-mine-charge/"
+      },
+      {
+        "title": "NewKerala – Adani Power acquires 24% of JPVL",
+        "url": "https://www.newkerala.com/news/a/adani-power-acquire-24-pc-stake-jaiprakash-power-743.htm"
+      },
+      {
+        "title": "MarketScreener/S&P – CCPS auction bidders",
+        "url": "https://www.marketscreener.com/news/adani-power-kotak-alternate-assets-vedanta-and-oaktree-reportedly-among-the-players-to-bid-for-an-ce7d59d8de80f627"
+      },
+      {
+        "title": "FilingReader – ICICI Bank cuts stake to 6.42%",
+        "url": "https://filingreader.com/news-wire/mumbai/2026-05-16/icici-bank-cuts-stake-in-jaiprakash-power-ventures-to-64"
+      },
+      {
+        "title": "Investywise – re-pledge of equity shares",
+        "url": "https://www.investywise.com/jaiprakash-power-ventures-re-pledge-of-equity-shares/"
+      },
+      {
+        "title": "ScanX – FY26 segment results",
+        "url": "https://scanx.trade/stock-market-news/companies/jaiprakash-power-ventures-reports-fy26-annual-financial-results-standalone-net-profit-declines-to-44-152-lakhs/39474136"
+      },
+      {
+        "title": "Whalesbook – FY26 profit plunges 44%",
+        "url": "https://www.whalesbook.com/corporate-news/English/energy/Jaiprakash-Power-Ventures-Q4-Loss-FY-Profit-Plunges-44percent/69f8bf949d1c90664825335a"
+      }
+    ]
+  }
+}
