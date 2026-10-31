@@ -16,6 +16,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Literal, Optional
 
+import pandas as pd
 from pydantic import BaseModel
 
 from eii.calculations.financials import KeyMetrics
@@ -198,6 +199,26 @@ RULES: list[Rule] = [
     Rule("fisher.growth.eps_cagr", "eps_cagr", (0.0, 0.05, 0.10, 0.15), "pct", IND + FIN),
     Rule("fisher.execution.efficiency", "ebit_margin_avg_3y", (0.03, 0.07, 0.12, 0.18), "pct",
          note="EBIT margin, 3y average."),
+    # Derived from the filed annual statements by `derived_metrics`.
+    Rule("buffett.economics.incremental_roc", "incremental_roce", (0.05, 0.10, 0.15, 0.20), "pct",
+         note="Change in EBIT / change in capital employed (equity + debt) over the last 3 years."),
+    Rule("buffett.economics.predictability", "loss_years", (3, 2, 1, 0), "num",
+         note="Years with a net loss in the last 5 filed years."),
+    Rule("munger.quality.revenue_predictability", "revenue_growth_volatility", (0.30, 0.20, 0.10, 0.05), "pct",
+         note="Standard deviation of year-on-year revenue growth."),
+    Rule("munger.capital.reinvested_returns", "incremental_roce", (0.05, 0.10, 0.15, 0.20), "pct",
+         note="Change in EBIT / change in capital employed (equity + debt) over the last 3 years."),
+    Rule("munger.capital.dilution", "share_count_cagr", (0.08, 0.04, 0.02, 0.005), "pct",
+         note="Annual growth in shares outstanding (split/bonus adjusted). Convertible instruments not yet "
+              "converted are not counted."),
+    Rule("munger.protection.downside", "worst_ebit_change", (-0.60, -0.35, -0.20, -0.05), "pct",
+         note="Worst year-on-year change in EBIT across filed years."),
+    Rule("dalio.rates.rate_sensitivity", "interest_burden", (0.60, 0.40, 0.25, 0.10), "pct",
+         note="Latest interest expense / EBIT: the share of operating profit a rate rise acts on."),
+    Rule("dalio.credit.credit_dependence", "net_debt_to_ebitda", (5.0, 3.0, 2.0, 1.0), "x",
+         note="Latest (debt − cash) / EBITDA."),
+    Rule("fisher.execution.reinvestment", "capex_to_depreciation", (0.5, 0.8, 1.0, 1.5), "x",
+         note="Capex / depreciation, 3y total: above 1x means the asset base is being grown, not just kept."),
 ]
 _unknown = {r.param_id for r in RULES} - PARAM_BY_ID.keys()
 assert not _unknown, f"Rules reference unknown parameters: {_unknown}"
@@ -220,9 +241,51 @@ def _fmt(value: float, unit: str) -> str:
     return {"pct": f"{value:.1%}", "x": f"{value:.2f}x", "flag": "yes" if value else "no"}.get(unit, f"{value:g}")
 
 
-def app_ratings(km: KeyMetrics, company_type: str) -> dict[str, Rating]:
-    """Ratings the app can justify from filed data alone."""
-    v = dict(km.values)
+def _col(fin: pd.DataFrame, name: str) -> pd.Series:
+    return fin[name].astype(float).dropna() if name in fin.columns else pd.Series(dtype=float)
+
+
+def derived_metrics(fin: pd.DataFrame) -> dict[str, Optional[float]]:
+    """Multi-year measures the scorecard doesn't need but the four-investor parameters do."""
+    out: dict[str, Optional[float]] = {}
+    if fin is None or fin.empty:
+        return out
+    ni, rev, ebit = _col(fin, "net_income"), _col(fin, "revenue"), _col(fin, "ebit")
+    if len(ni) >= 3:
+        out["loss_years"] = float((ni.iloc[-5:] < 0).sum())
+    growth = (rev / rev.shift(1) - 1)[rev.shift(1) > 0].dropna()
+    if len(growth) >= 3:
+        out["revenue_growth_volatility"] = float(growth.std(ddof=0))
+    base = ebit.shift(1)
+    change = ((ebit - base) / base.abs())[base.abs() > 0].dropna()
+    if len(change) >= 2:
+        out["worst_ebit_change"] = float(change.min())
+    shares = _col(fin, "shares_outstanding")
+    if len(shares) >= 2 and shares.iloc[0] > 0:
+        years = (shares.index[-1] - shares.index[0]).days / 365.25
+        if years >= 1:
+            out["share_count_cagr"] = float((shares.iloc[-1] / shares.iloc[0]) ** (1 / years) - 1)
+    ce = (_col(fin, "total_equity") + _col(fin, "total_debt").reindex(fin.index).fillna(0)).dropna()
+    both = pd.concat([ebit, ce], axis=1, keys=["ebit", "ce"]).dropna()
+    if len(both) >= 4:
+        d_ce = both["ce"].iloc[-1] - both["ce"].iloc[-4]
+        if d_ce > 0:
+            out["incremental_roce"] = float((both["ebit"].iloc[-1] - both["ebit"].iloc[-4]) / d_ce)
+    interest = _col(fin, "interest_expense")
+    if not interest.empty and not ebit.empty and ebit.iloc[-1] > 0 and interest.index[-1] == ebit.index[-1]:
+        out["interest_burden"] = float(abs(interest.iloc[-1]) / ebit.iloc[-1])
+    debt, cash, ebitda = _col(fin, "total_debt"), _col(fin, "cash_and_st_investments"), _col(fin, "ebitda")
+    if not (debt.empty or cash.empty or ebitda.empty) and ebitda.iloc[-1] > 0:
+        out["net_debt_to_ebitda"] = float((debt.iloc[-1] - cash.iloc[-1]) / ebitda.iloc[-1])
+    capex, dep = _col(fin, "capex").iloc[-3:], _col(fin, "depreciation").iloc[-3:]
+    if len(capex) >= 2 and len(dep) >= 2 and dep.sum() > 0:
+        out["capex_to_depreciation"] = float(capex.abs().sum() / dep.sum())
+    return out
+
+
+def app_ratings(km: KeyMetrics, company_type: str, fin: Optional[pd.DataFrame] = None) -> dict[str, Rating]:
+    """Ratings the app can justify from filed data alone (`fin`: facts_to_frame of the statements)."""
+    v = {**km.values, **derived_metrics(fin)}
     rev, fcf = v.get("latest_revenue"), v.get("latest_fcf")
     v["fcf_margin"] = fcf / rev if fcf is not None and rev and rev > 0 else None
     out: dict[str, Rating] = {}

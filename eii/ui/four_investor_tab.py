@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from pydantic import ValidationError
 
+from eii.calculations import facts_to_frame
 from eii.calculations.financials import KeyMetrics
 from eii.four_investor import (INVESTORS, PARAMS, RATING_LABELS, app_ratings, combined_score, load_run, merge,
                                score_band, score_investor)
@@ -34,7 +35,7 @@ def render(report: ResearchReport, km: KeyMetrics, data_dir) -> None:
         run = None
         st.error(f"The saved Claude Code research for this company could not be read: {exc}")
 
-    fixed = app_ratings(km, report.company_type)
+    fixed = app_ratings(km, report.company_type, facts_to_frame(report.financials))
     ratings = merge(fixed, run.claude_ratings() if run else {})
     scores = [score_investor(i, ratings) for i in INVESTORS]
     combined = combined_score(scores)

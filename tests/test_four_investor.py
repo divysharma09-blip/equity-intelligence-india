@@ -86,3 +86,28 @@ def test_prompt_lists_every_parameter_and_marks_app_ratings():
     prompt = build_user_prompt(report, km, fixed, "3–5 years")
     assert all(f"| {p.id} |" in prompt for p in PARAMS)
     assert "| buffett.economics.roe | buffett | Business economics | ROE consistency | 5 | 4 (Excellent) — 20.0% |" in prompt
+
+
+def test_derived_metrics_from_statements():
+    import pandas as pd
+    idx = pd.to_datetime(["2021-03-31", "2022-03-31", "2023-03-31", "2024-03-31", "2025-03-31"])
+    fin = pd.DataFrame({
+        "revenue": [100, 110, 121, 133.1, 146.41],  # steady 10% growth
+        "net_income": [-5, 8, 10, 12, 14],
+        "ebit": [10, 20, 15, 24, 30],
+        "total_equity": [100, 110, 120, 130, 140], "total_debt": [50, 50, 50, 50, 50],
+        "interest_expense": [5, 5, 5, 5, 6], "cash_and_st_investments": [10, 10, 10, 10, 10],
+        "ebitda": [20, 30, 25, 34, 40], "capex": [-20, -20, -20, -20, -30], "depreciation": [10, 10, 10, 10, 10],
+        "shares_outstanding": [100, 100, 100, 100, 110]}, index=idx)
+    from eii.four_investor.framework import derived_metrics
+    d = derived_metrics(fin)
+    assert d["loss_years"] == 1 and d["revenue_growth_volatility"] == pytest.approx(0, abs=1e-9)
+    assert d["worst_ebit_change"] == pytest.approx(-0.25)
+    assert d["incremental_roce"] == pytest.approx((30 - 20) / (190 - 160))
+    assert d["interest_burden"] == pytest.approx(0.2) and d["net_debt_to_ebitda"] == pytest.approx(1.0)
+    assert d["capex_to_depreciation"] == pytest.approx(70 / 30)
+    assert d["share_count_cagr"] == pytest.approx(1.1 ** (1 / 4.0) - 1, rel=1e-3)
+    r = app_ratings(_km(), "industrial", fin)
+    assert r["munger.quality.revenue_predictability"].rating == 4 and r["buffett.economics.predictability"].rating == 3
+    assert r["dalio.credit.credit_dependence"].rating == 4 and r["munger.capital.dilution"].rating == 2  # 2.4% a year
+    assert derived_metrics(pd.DataFrame()) == {}

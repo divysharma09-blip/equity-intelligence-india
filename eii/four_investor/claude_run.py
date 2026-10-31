@@ -23,6 +23,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+from eii.calculations import facts_to_frame
 from eii.config import get_settings
 from eii.four_investor.framework import PARAMS, RATING_LABELS, Rating, app_ratings
 from eii.four_investor.research import ClaudeAssessment, ResearchRun, save_run
@@ -188,7 +189,7 @@ def main(argv: list[str] | None = None) -> None:
     print(f"Building verified data for {identity.company_name} ({identity.nse_symbol})…", flush=True)
     report = build_report(identity, registry, nse, bse, sources).report
     km = compute_key_metrics(report)
-    fixed = app_ratings(km, report.company_type)
+    fixed = app_ratings(km, report.company_type, facts_to_frame(report.financials))
     user = build_user_prompt(report, km, fixed, args.horizon)
     print(f"App rated {len(fixed)} of {len(PARAMS)} parameters from filed data.", flush=True)
     if args.dry_run:

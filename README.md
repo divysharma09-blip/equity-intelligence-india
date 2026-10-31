@@ -40,9 +40,10 @@ The **Four investors** tab scores the company against the master prompt in
 `eii/four_investor/master_prompt.md`: 77 parameters, rated 0–4, 25 points per category,
 100 per investor, combined at equal weight.
 
-- **App ratings** — 17 parameters a filed metric measures directly (ROCE, ROE, margin stability, FCF,
+- **App ratings** — 26 parameters a filed metric measures directly (ROCE, ROE, margin stability, FCF,
   CFO/PAT, debt, interest cover, current ratio, FCF yield, pledge, audit opinion, accruals, growth,
-  EBIT margin) are rated live from NSE data. Rules are in `eii/four_investor/framework.py`.
+  EBIT margin, incremental ROCE, loss years, revenue stability, dilution, worst EBIT drop, interest
+  burden, net debt/EBITDA, capex/depreciation) are rated live from NSE data. Rules are in `eii/four_investor/framework.py`.
 - **Claude Code research** — everything else (moat, management, macro, innovation, valuation
   scenarios, red flags, the full 18-section report) comes from a run on your Mac, on your Claude plan,
   with no API key:
