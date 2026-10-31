@@ -14,6 +14,7 @@ from eii.calculations.financials import RATIO_METRICS
 from eii.scoring import COMPANY_TYPE_LABELS, score_band
 from eii.services import compute_key_metrics
 from eii.services.persistence import save_completed_report
+from eii.ui import four_investor_tab
 from eii.ui.components import (disclaimer, fmt_cr, fmt_inr, fmt_num, fmt_pct, fmt_x, fmt_by_unit,
                                no_report_message, readiness_banner, status_legend, verification_badge)
 from eii.ui.state import PRICES_KEY, current_report, get_app, open_company, scorecard_config, update_report
@@ -58,7 +59,7 @@ if flash:
 readiness_banner(report.readiness)
 
 tabs = st.tabs(["Overview", "Business & moat", "Financials", "Quality · Growth · Valuation · Strength",
-                "Governance & risks", "Valuation scenarios", "Sources & data quality"])
+                "Governance & risks", "Valuation scenarios", "Four investors", "Sources & data quality"])
 
 
 def _src_caption(source_id: str | None) -> None:
@@ -469,8 +470,12 @@ with tabs[5]:
             except ValueError as exc:
                 st.error(str(exc))
 
-# ------------------------------------------------------------------ 7. sources & data quality
+# ------------------------------------------------------------------ 7. four investors
 with tabs[6]:
+    four_investor_tab.render(report, km, get_app().settings.data_dir)
+
+# ------------------------------------------------------------------ 8. sources & data quality
+with tabs[7]:
     v = report.verification
     st.subheader("Identity verification")
     if v:

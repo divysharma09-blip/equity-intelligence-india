@@ -29,10 +29,30 @@ No API keys are needed. The first search downloads NSE's official equity list (a
 | Page | Purpose |
 |---|---|
 | **Search** | Find companies by name, NSE symbol, BSE code (6 digits) or ISIN. Results are *candidates* until they are verified. |
-| **Research workspace** | Seven sections: Overview · Business & moat · Financials · Quality/Growth/Valuation/Strength · Governance & risks · Valuation scenarios · Sources & data quality. Ends with **Complete & save report…**, which asks *Yes/No* before writing anything. |
+| **Research workspace** | Eight sections: Overview · Business & moat · Financials · Quality/Growth/Valuation/Strength · Governance & risks · Valuation scenarios · Four investors · Sources & data quality. Ends with **Complete & save report…**, which asks *Yes/No* before writing anything. |
 | **Saved companies** | Every saved company and its report versions, with an audit trail. You can reopen any version. |
 | **Compare** | Key metrics side by side and a factor-profile radar chart for up to 6 companies. Warns when companies come from different sectors. |
 | **Settings & methodology** | Provider status, NSE refresh, BSE list upload, scorecard weights, Excel sync retry, database backup, full methodology. |
+
+## Four-investor analysis (Buffett · Munger · Dalio · Fisher)
+
+The **Four investors** tab scores the company against the master prompt in
+`eii/four_investor/master_prompt.md`: 77 parameters, rated 0–4, 25 points per category,
+100 per investor, combined at equal weight.
+
+- **App ratings** — 17 parameters a filed metric measures directly (ROCE, ROE, margin stability, FCF,
+  CFO/PAT, debt, interest cover, current ratio, FCF yield, pledge, audit opinion, accruals, growth,
+  EBIT margin) are rated live from NSE data. Rules are in `eii/four_investor/framework.py`.
+- **Claude Code research** — everything else (moat, management, macro, innovation, valuation
+  scenarios, red flags, the full 18-section report) comes from a run on your Mac, on your Claude plan,
+  with no API key:
+
+  ```bash
+  python -m eii.four_investor JPPOWER            # symbol, ISIN or name; --dry-run prints the prompt
+  ```
+
+  It saves `data/four_investor/<ISIN>.json`. Commit and push it to show it on the deployed app.
+  App ratings always override Claude's; unrated parameters are excluded, never scored as zero.
 
 ## Data integrity rules (enforced in code)
 

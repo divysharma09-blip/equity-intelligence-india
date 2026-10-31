@@ -44,6 +44,16 @@ report = refresh_analysis(ResearchReport(identity=ident, financials=facts, sourc
 at.session_state["report"] = report
 at.session_state["price_history"] = None
 at.switch_page("eii/ui/views/workspace.py"); run(at, "workspace")
+out["four_investor_hint"] = any("python -m eii.four_investor ALPHAIND" in c.value for c in at.code)
+from eii.config import get_settings
+from eii.four_investor.research import ClaudeAssessment, ParamAssessment, ResearchRun, save_run
+save_run(get_settings().data_dir, ResearchRun(
+    identity_key=ident.key, company_name=ident.company_name, nse_symbol="ALPHAIND",
+    generated_at=datetime.now(timezone.utc), model="test", horizon="3–5 years", price_used=319.44,
+    assessment=ClaudeAssessment(assessments=[ParamAssessment(param_id="buffett.moat.brand", rating=3)],
+                                verdict="WATCHLIST", report_markdown="## Section 1: Executive summary")))
+run(at, "workspace_with_run")
+out["four_investor_verdict"] = any("WATCHLIST" in m.value for m in at.markdown)
 next(b for b in at.button if b.label.startswith("Complete & save")).click(); run(at, "dialog")
 next(b for b in at.button if b.label == "No, don't save").click(); run(at, "no")
 out["after_no"] = [i.value for i in at.info if "Not saved" in i.value]
@@ -72,9 +82,10 @@ def test_all_pages_render_and_save_dialog(tmp_path):
     line = next((l for l in proc.stdout.splitlines() if l.startswith("RESULT")), None)
     assert line, proc.stderr[-3000:]
     out = json.loads(line[len("RESULT"):])
-    for page in ("search", "search_query", "workspace", "dialog", "no", "yes", "saved", "compare", "settings"):
+    for page in ("search", "search_query", "workspace", "workspace_with_run", "dialog", "no", "yes", "saved", "compare", "settings"):
         assert out[page] == [], f"{page}: {out[page]}"
     assert out["search_results"] == ["2 candidate(s)"]
+    assert out["four_investor_hint"] and out["four_investor_verdict"]
     assert out["after_no"] and out["companies_after_no"] == 0
     assert out["after_yes"] and out["companies_after_yes"] == 1
     assert (data / "Equity_Intelligence_India.xlsx").exists()
