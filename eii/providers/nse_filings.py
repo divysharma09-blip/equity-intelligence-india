@@ -265,6 +265,10 @@ def map_industrial(f: XbrlFiling, ccy: str) -> FACTS:
     put("current_liabilities", _first(i, "CurrentLiabilities"))
     put("receivables", _first(i, "TradeReceivablesCurrent"))
     put("inventory", _first(i, "Inventories"))
+    put("short_term_debt", _first(i, "BorrowingsCurrent"))
+    put("raw_material_cost", _sum(a, "CostOfMaterialsConsumed", "PurchasesOfStockInTrade",
+                                  "ChangesInInventoriesOfFinishedGoodsWorkInProgressAndStockInTrade"), DataStatus.DERIVED)
+    put("employee_cost", _first(a, "EmployeeBenefitExpense"))
     return out
 
 

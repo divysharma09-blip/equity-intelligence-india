@@ -40,10 +40,20 @@ The **Four investors** tab scores the company against the master prompt in
 `eii/four_investor/master_prompt.md`: 77 parameters, rated 0–4, 25 points per category,
 100 per investor, combined at equal weight.
 
-- **App ratings** — 26 parameters a filed metric measures directly (ROCE, ROE, margin stability, FCF,
-  CFO/PAT, debt, interest cover, current ratio, FCF yield, pledge, audit opinion, accruals, growth,
-  EBIT margin, incremental ROCE, loss years, revenue stability, dilution, worst EBIT drop, interest
-  burden, net debt/EBITDA, capex/depreciation) are rated live from NSE data. Rules are in `eii/four_investor/framework.py`.
+- **App ratings, live for every company** (typically 80–100% coverage per investor, no Claude run):
+  - *Filed statements* (NSE XBRL): ROCE/ROE and their persistence, margins and their stability, gross
+    margin, FCF, CFO/PAT, leverage, interest cover, liquidity, short-term debt share, incremental ROCE,
+    loss years, FY21 (COVID) revenue change, FY23 (inflation) margin change, input-cost share, dilution,
+    payout, capex/depreciation, growth vs nominal GDP.
+  - *Public NSE evidence* (`eii/four_investor/evidence.py`): BRSR (exports, R&D, related-party share,
+    attrition, dealer network), 3 years of announcements (fraud/default/insolvency, auditor resignations,
+    investor calls and presentations, acquisitions, buybacks, rating actions), promoter-holding trend,
+    year-end P/E history from bhavcopy prices, index tier.
+  - *DCF model*: base and bear two-stage FCF DCF (12% discount, 5% terminal) for value and margin of safety.
+  - *Sector profiles* (`eii/four_investor/sector_profiles.py`): industry-level judgement for the 22 NSE
+    sectors (GDP sensitivity, regulation, commodity exposure, disruption, market growth) and which
+    parameters apply at all (e.g. patents are not applicable to a power utility; excluded from coverage).
+  - Lenders get sector substitutes (CET1, NPAs, credit cost, NII/assets, cost-to-income).
 - **Claude Code research** — everything else (moat, management, macro, innovation, valuation
   scenarios, red flags, the full 18-section report) comes from a run on your Mac, on your Claude plan,
   with no API key:
@@ -53,7 +63,8 @@ The **Four investors** tab scores the company against the master prompt in
   ```
 
   It saves `data/four_investor/<ISIN>.json`. Commit and push it to show it on the deployed app.
-  App ratings always override Claude's; unrated parameters are excluded, never scored as zero.
+  Precedence: app data > Claude research > app DCF model and sector profile. Unrated parameters are
+  excluded, never scored as zero; not-applicable ones are left out of the coverage denominator.
 
 ## Data integrity rules (enforced in code)
 

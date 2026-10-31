@@ -25,7 +25,8 @@ from pathlib import Path
 
 from eii.calculations import facts_to_frame
 from eii.config import get_settings
-from eii.four_investor.framework import PARAMS, RATING_LABELS, Rating, app_ratings
+from eii.four_investor.evidence import collect_with_registry
+from eii.four_investor.framework import PARAMS, RATING_LABELS, Rating, app_ratings, sector_ratings
 from eii.four_investor.research import ClaudeAssessment, ResearchRun, save_run
 from eii.providers import ProviderUnavailable, build_registry
 from eii.services import build_report, compute_key_metrics, search_securities
@@ -79,12 +80,25 @@ def app_data(report, km) -> dict:
     }
 
 
-def build_user_prompt(report, km, fixed: dict[str, Rating], horizon: str) -> str:
+def build_user_prompt(report, km, fixed: dict[str, Rating], horizon: str,
+                      by_sector: dict[str, Rating] | None = None) -> str:
     ident = report.identity
     rows = []
     for p in PARAMS:
-        r = fixed.get(p.id)
-        app = f"{r.rating} ({RATING_LABELS[r.rating]}) — {r.observed}" if r else ""
+        r, s = fixed.get(p.id), (by_sector or {}).get(p.id)
+        if r and not r.applicable:
+            app = "not applicable (lender)"
+        elif r and r.source == "model" and r.rating is not None:
+            app = (f"app DCF model: {r.rating} ({RATING_LABELS[r.rating]}) — {r.observed}; mechanical, basic shares, "
+                   "no contingent liabilities: replace with your own valuation")
+        elif r and r.rating is not None:
+            app = f"{r.rating} ({RATING_LABELS[r.rating]}) — {r.observed}"
+        elif s and not s.applicable:
+            app = "sector profile: not applicable — rate only if company evidence shows it matters"
+        elif s and s.rating is not None:
+            app = f"sector profile: {s.rating} ({RATING_LABELS[s.rating]}) — replace with a company-specific rating"
+        else:
+            app = ""
         rows.append(f"| {p.id} | {p.investor} | {p.category} | {p.label} | {p.weight} | {app} |")
     return f"""Company name: {ident.company_name}
 Stock ticker: {ident.nse_symbol or '—'}
@@ -113,7 +127,8 @@ cross-checks) for everything else, and cite each material claim.
 ## Parameters
 
 Every parameter of the framework, with its weight. Where the "App rating" column is filled, the app
-has rated that parameter from filed data; that rating is final and will be used as is.
+has rated that parameter from filed data or NSE evidence; that rating is final and will be used as is.
+"Sector profile" entries are generic industry judgements: assess those for this specific company.
 
 | id | investor | category | parameter | weight | App rating |
 |---|---|---|---|---|---|
@@ -123,7 +138,8 @@ has rated that parameter from filed data; that rating is final and will be used 
 
 Return JSON matching the provided schema:
 
-- `assessments`: one entry for EVERY parameter id above that has no app rating, using the exact ids.
+- `assessments`: one entry for EVERY parameter id above that has no final app rating (including the
+  sector-profile and DCF-model ones), using the exact ids.
   Rating 0–4 per the standardised methodology, or null with data_status "Unavailable" when the evidence
   is not there. Never use 0 for missing data.
 - Investor scores in your report must be computed exactly as the app does: for each investor,
@@ -189,9 +205,13 @@ def main(argv: list[str] | None = None) -> None:
     print(f"Building verified data for {identity.company_name} ({identity.nse_symbol})…", flush=True)
     report = build_report(identity, registry, nse, bse, sources).report
     km = compute_key_metrics(report)
-    fixed = app_ratings(km, report.company_type, facts_to_frame(report.financials))
-    user = build_user_prompt(report, km, fixed, args.horizon)
-    print(f"App rated {len(fixed)} of {len(PARAMS)} parameters from filed data.", flush=True)
+    price = report.market.price if report.market else None
+    ev = collect_with_registry(identity, report.financials, km.values.get("pe"), registry, settings.reference_dir)
+    fixed = app_ratings(km, report.company_type, facts_to_frame(report.financials), price, ev)
+    _, by_sector = sector_ratings(ev.sector, report.company_type, ev, facts_to_frame(report.financials))
+    user = build_user_prompt(report, km, fixed, args.horizon, by_sector)
+    print(f"App rated {sum(r.rating is not None for r in fixed.values())} of {len(PARAMS)} parameters from data "
+          f"(sector: {ev.sector or 'unknown'}).", flush=True)
     if args.dry_run:
         print(user)
         return

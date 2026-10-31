@@ -30,6 +30,10 @@ from eii.providers.base import (FundamentalsBundle, FundamentalsProvider, Provid
 log = logging.getLogger("eii.providers")
 
 URL = "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_{d:%Y%m%d}_F_0000.csv.zip"
+# Format used until NSE switched to UDiFF on 8 Jul 2024; still served for historical dates.
+LEGACY_URL = "https://nsearchives.nseindia.com/content/historical/EQUITIES/{d:%Y}/{mon}/cm{d:%d}{mon}{d:%Y}bhav.csv.zip"
+UDIFF_FROM = date(2024, 7, 8)
+_LEGACY_COLUMNS = {"TIMESTAMP": "TradDt", "ISIN": "ISIN", "SYMBOL": "TckrSymb", "SERIES": "SctySrs", "CLOSE": "ClsPric"}
 _UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
        "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 _IST = timezone(timedelta(hours=5, minutes=30))
@@ -38,9 +42,16 @@ SERIES_PREFERENCE = ["EQ", "BE", "BZ", "SM", "ST"]
 _COLUMNS = ["TradDt", "ISIN", "TckrSymb", "SctySrs", "ClsPric"]
 
 
+def url_for(d: date) -> str:
+    return URL.format(d=d) if d >= UDIFF_FROM else LEGACY_URL.format(d=d, mon=d.strftime("%b").upper())
+
+
 def parse_bhavcopy(raw: bytes) -> pd.DataFrame:
-    """Zipped UDiFF CSV -> frame with columns TradDt, ISIN, TckrSymb, SctySrs, ClsPric."""
-    df = pd.read_csv(io.BytesIO(raw), compression="zip", usecols=_COLUMNS, dtype=str)
+    """Zipped UDiFF or legacy CSV -> frame with columns TradDt, ISIN, TckrSymb, SctySrs, ClsPric."""
+    df = pd.read_csv(io.BytesIO(raw), compression="zip", dtype=str)
+    if "SYMBOL" in df.columns:
+        df = df.rename(columns=_LEGACY_COLUMNS)
+    df = df[_COLUMNS].copy()
     df["ClsPric"] = pd.to_numeric(df["ClsPric"], errors="coerce")
     for col in ("ISIN", "TckrSymb", "SctySrs"):
         df[col] = df[col].str.strip().str.upper()
@@ -87,7 +98,7 @@ class NSEBhavcopyProvider(FundamentalsProvider):
             raw = path.read_bytes()
         else:
             try:
-                resp = self.session.get(URL.format(d=d), timeout=self.timeout)
+                resp = self.session.get(url_for(d), timeout=self.timeout)
             except requests.RequestException as exc:
                 log.warning("Bhavcopy download failed for %s: %s", d, exc)
                 return None
@@ -105,6 +116,19 @@ class NSEBhavcopyProvider(FundamentalsProvider):
             return None
         self._frames[d] = frame
         return frame
+
+    def close_on_or_before(self, d: date, symbol: Optional[str], isin: Optional[str],
+                           lookback_days: int = LOOKBACK_DAYS) -> Optional[tuple[date, float]]:
+        """Closing price on the last trading day on or before `d`, or None."""
+        for back in range(lookback_days):
+            day = d - timedelta(days=back)
+            if day.weekday() >= 5:
+                continue
+            frame = self._day(day)
+            if frame is not None:
+                row = pick_row(frame, symbol, isin)
+                return (day, float(row["ClsPric"])) if row is not None else None
+        return None
 
     def latest(self) -> tuple[date, pd.DataFrame]:
         today = datetime.now(_IST).date()
@@ -127,7 +151,7 @@ class NSEBhavcopyProvider(FundamentalsProvider):
         if row is None:
             raise ProviderUnavailable(f"{identity.nse_symbol or identity.isin} did not trade on NSE on {d:%d %b %Y}.")
         src = Source(title=f"NSE bhavcopy — closing price {row['TckrSymb']} ({row['SctySrs']}), {d:%d %b %Y}",
-                     provider=self.name, kind=self.kind, url=URL.format(d=d),
+                     provider=self.name, kind=self.kind, url=url_for(d),
                      notes="Official end-of-day close; not a live price.")
         as_of = datetime.combine(d, datetime.min.time(), tzinfo=_IST).replace(hour=15, minute=30)
         bundle = FundamentalsBundle(sources=[src])

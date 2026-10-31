@@ -29,6 +29,8 @@ METRIC_LABELS = {
     "operating_cash_flow": "Operating cash flow", "capex": "Capital expenditure",
     "free_cash_flow": "Free cash flow", "dividends_paid": "Dividends paid",
     "other_income": "Other income", "depreciation": "Depreciation & amortisation",
+    "short_term_debt": "Short-term borrowings", "raw_material_cost": "Material & traded-goods cost",
+    "employee_cost": "Employee benefit expense",
     # banks / NBFCs
     "interest_earned": "Interest earned", "interest_expended": "Interest expended / finance costs",
     "net_interest_income": "Net interest income", "operating_expenses": "Operating expenses",
