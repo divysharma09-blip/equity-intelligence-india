@@ -32,8 +32,14 @@ class AppContext:
     workbook: WorkbookManager
 
 
-@st.cache_resource(show_spinner=False)
 def get_app() -> AppContext:
+    # Keyed on the exception class identity: when Streamlit hot-reloads code after a redeploy,
+    # a context cached by the old modules would raise exception classes the new code can't catch.
+    return _app_context(id(ProviderUnavailable))
+
+
+@st.cache_resource(show_spinner=False)
+def _app_context(code_version: int) -> AppContext:
     settings = get_settings()
     setup_logging(settings)
     init_db(settings.db_path)
