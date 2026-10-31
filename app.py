@@ -14,6 +14,7 @@ st.set_page_config(page_title=APP_NAME, page_icon=":material/insights:", layout=
                    initial_sidebar_state="expanded")
 
 try:
+    from eii.ui import chat_panel
     from eii.ui.state import current_report, get_app
     get_app()
 except DatabaseError as exc:
@@ -39,5 +40,8 @@ with st.sidebar:
     if report is not None:
         st.caption(f"Open: **{report.identity.company_name}**")
     st.caption(FRAMEWORK_DISCLAIMER)
+
+# Before the page: pages may st.stop() (e.g. no company open), which would skip anything after them.
+chat_panel.render()
 
 nav.run()

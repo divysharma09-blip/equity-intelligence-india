@@ -13,10 +13,7 @@ push it to show it on the deployed app.
 from __future__ import annotations
 
 import argparse
-import glob
 import json
-import os
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -24,6 +21,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from eii.calculations import facts_to_frame
+from eii.claude_cli import claude_env, find_claude
 from eii.config import get_settings
 from eii.four_investor.evidence import collect_with_registry
 from eii.four_investor.framework import PARAMS, RATING_LABELS, Rating, app_ratings, sector_ratings
@@ -37,15 +35,10 @@ TIMEOUT_S = 60 * 60
 
 
 def claude_bin() -> str:
-    """Find the claude CLI: $CLAUDE_BIN, PATH, the standalone install, then the VS Code extension."""
-    candidates = [os.getenv("CLAUDE_BIN"), shutil.which("claude"), str(Path.home() / ".local/bin/claude")]
-    candidates += sorted(
-        glob.glob(str(Path.home() / ".vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude")),
-        key=os.path.getmtime, reverse=True)
-    for path in candidates:
-        if path and os.access(path, os.X_OK):
-            return path
-    raise SystemExit("Claude Code CLI not found. Install it, or set CLAUDE_BIN to its path.")
+    path = find_claude()
+    if path is None:
+        raise SystemExit("Claude Code CLI not found. Install it, or set CLAUDE_BIN to its path.")
+    return path
 
 
 def _crore(x):
@@ -159,10 +152,9 @@ def run_claude(system: str, user: str, model: str) -> ClaudeAssessment:
            "--setting-sources", "", "--tools", "WebSearch", "WebFetch",
            "--allowedTools", "WebSearch", "WebFetch",
            "--json-schema", json.dumps(ClaudeAssessment.model_json_schema())]
-    env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}  # use the Claude plan login
     with tempfile.TemporaryDirectory() as cwd:
         proc = subprocess.run(cmd, input=user, capture_output=True, text=True, timeout=TIMEOUT_S,
-                              env=env, cwd=cwd)
+                              env=claude_env(), cwd=cwd)
     try:
         result = json.loads(proc.stdout)
     except json.JSONDecodeError:

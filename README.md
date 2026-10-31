@@ -66,6 +66,17 @@ The **Four investors** tab scores the company against the master prompt in
   Precedence: app data > Claude research > app DCF model and sector profile. Unrated parameters are
   excluded, never scored as zero; not-applicable ones are left out of the coverage denominator.
 
+## AI assistant (sidebar)
+
+A chat panel at the bottom of the sidebar, on every page. It answers questions about markets
+(using web search, with source links) and about this app (it reads the app's own code and docs),
+and it knows the open company's data, scores, warnings and four-investor results.
+
+It runs through **Claude Code on your Mac** (your Claude plan, no API key), so it works when the app
+runs locally (`streamlit run app.py`); on the deployed site the panel says it is unavailable. The
+default model is `claude-sonnet-5-5`; set `EII_CHAT_MODEL` to change it. Code: `eii/chat/assistant.py`
+(CLI call and streaming), `eii/ui/chat_panel.py` (sidebar UI and app context).
+
 ## Data integrity rules (enforced in code)
 
 * **Nothing is fabricated.** Missing values stay missing (shown as "—") and are excluded from scores, never counted as zero.
